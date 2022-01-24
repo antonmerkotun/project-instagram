@@ -1,1 +1,8 @@
+.container {
+    max-width: 935px;
+    margin: 0 auto;
+}
 
+.scroll-block {
+    z-index: 1;
+}
