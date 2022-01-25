@@ -7,7 +7,7 @@ import {BsBookmarkStar} from "react-icons/bs";
 
 
 const Post = (props) => {
-    const {avatar, userName, content, favoriteNumber} = props
+    const {avatar, userName, content, favoriteNumber, lastComment, comments} = props
 
     return (
         <div className="post">
@@ -48,7 +48,8 @@ const Post = (props) => {
                     <p>{favoriteNumber} отметок "Нравится"</p>
                 </div>
                 <div className="footer-comment">
-                    <div className="footer-comment-content">Комментарии</div>
+                    <div className="footer-comment-content">{lastComment}Комментарии</div>
+                    <div style={{display: "none"}} className="footer-comment-all">{comments} все комментарии</div>
                     <button className="footer-comment-button">Посмотреть все комментарии</button>
                 </div>
                 <div className="footer-comment-add">
