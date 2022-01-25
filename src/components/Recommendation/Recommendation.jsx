@@ -7,7 +7,7 @@ const Recommendation = () => {
     return (
         <div className='recommendation'>
             <div>Пользователь</div>
-            <div>Рекомендации</div>
+            <div>Рекомендации для вас</div>
             <div>
                 <div>1</div>
                 <div>2</div>

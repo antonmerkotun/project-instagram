@@ -16,9 +16,9 @@
   width: 293px;
   position: relative;
   margin-top: 20px;
-}
 
-.list-people-fixed {
-  position: fixed;
-  width: 293px;
+  &-fixed {
+    position: fixed;
+    width: 293px;
+  }
 }
