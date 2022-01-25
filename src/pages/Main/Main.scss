@@ -1,14 +1,15 @@
 .page-main {
-  margin-top: 90px;
+  margin-top: 60px;
   display: flex;
   justify-content: space-between;
   position: relative;
   height: 1000px;
+  padding-top: 30px;
 }
 
 .post-feed {
   width: 614px;
-  border: 1px solid black;
+  //border: 1px solid black;
 }
 
 .list-people {
