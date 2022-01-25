@@ -22,12 +22,12 @@ function Header() {
                     <input className="header__search-input" type="text" placeholder="Поиск"/>
                 </div>
                 <div className="header__nav">
-                    <Link to="/"><AiFillHome className="header__nav-icon"/></Link>
-                    <Link to="/notfound"><RiMessengerLine className="header__nav-icon"/></Link>
-                    <Link to="/notfound"><FiPlusSquare className="header__nav-icon"/></Link>
-                    <Link to="/notfound"><RiCompass3Line className="header__nav-icon"/></Link>
-                    <Link to="/notfound"><MdOutlineFavoriteBorder className="header__nav-icon"/></Link>
-                    <Link to="/user"><FiCircle className="header__nav-icon"/></Link>
+                    <Link className="link" to="/"><AiFillHome className="header__nav-icon"/></Link>
+                    <Link className="link" to="/notfound"><RiMessengerLine className="header__nav-icon"/></Link>
+                    <Link className="link" to="/notfound"><FiPlusSquare className="header__nav-icon"/></Link>
+                    <Link className="link" to="/notfound"><RiCompass3Line className="header__nav-icon"/></Link>
+                    <Link className="link" to="/notfound"><MdOutlineFavoriteBorder className="header__nav-icon"/></Link>
+                    <Link className="link" to="/user"><FiCircle className="header__nav-icon"/></Link>
                 </div>
             </div>
         </div>

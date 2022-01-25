@@ -49,6 +49,7 @@
     width: 268px;
     box-sizing: border-box;
     margin-left: 90px;
+    outline: none;
   }
 
   &__nav {
@@ -63,4 +64,8 @@
       }
     }
   }
+}
+
+.link {
+  color: #000000;
 }

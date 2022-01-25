@@ -1,12 +1,10 @@
 #root {
-    background-color: #fafafa;
+    /*background-color: #fafafa;*/
 }
 
 .container {
     max-width: 935px;
     margin: 0 auto;
-    background-color: #fafafa;
-    /*background-color: #ffffff;*/
 }
 
 .scroll-block {
