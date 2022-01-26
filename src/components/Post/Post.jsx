@@ -4,6 +4,7 @@ import {MdOutlineFavoriteBorder} from "react-icons/md";
 import {AiOutlineMessage} from "react-icons/ai";
 import {RiSendPlaneFill} from "react-icons/ri";
 import {BsBookmarkStar} from "react-icons/bs";
+import UserAvatar from "../UserAvatar/UserAvatar";
 
 
 const Post = (props) => {
@@ -13,7 +14,10 @@ const Post = (props) => {
         <div className="post">
             <div className="post__header">
                 <div className="post__header-user ">
-                    <div className="post__header-avatar" style={{backgroundImage: `url(${avatar})`}}/>
+                    {/*<div className="post__header-avatar" style={{backgroundImage: `url(${avatar})`}}/>*/}
+                    <div className="post__header-avatar">
+                        <UserAvatar avatar={avatar}/>
+                    </div>
                     <div>
                         <p className="post__header-name">{userName}</p>
                     </div>

@@ -1,13 +1,18 @@
 import React from 'react';
+
 // style
 import "./Header.scss"
+
 // icon
 import {AiFillHome} from "react-icons/ai";
 import {RiCompass3Line, RiMessengerLine} from "react-icons/ri";
-import {FiCircle, FiPlusSquare} from "react-icons/fi";
+import {FiPlusSquare} from "react-icons/fi";
 import {MdOutlineFavoriteBorder} from "react-icons/md";
 import {Link} from "react-router-dom";
-//
+
+//components
+import UserAvatar from "../UserAvatar/UserAvatar";
+
 
 function Header() {
     return (
@@ -22,12 +27,26 @@ function Header() {
                     <input className="header__search-input" type="text" placeholder="Поиск"/>
                 </div>
                 <div className="header__nav">
-                    <Link className="link" to="/"><AiFillHome className="header__nav-icon"/></Link>
-                    <Link className="link" to="/notfound"><RiMessengerLine className="header__nav-icon"/></Link>
-                    <Link className="link" to="/notfound"><FiPlusSquare className="header__nav-icon"/></Link>
-                    <Link className="link" to="/notfound"><RiCompass3Line className="header__nav-icon"/></Link>
-                    <Link className="link" to="/notfound"><MdOutlineFavoriteBorder className="header__nav-icon"/></Link>
-                    <Link className="link" to="/user"><FiCircle className="header__nav-icon"/></Link>
+                    <div className="header__nav-icon">
+                        <Link className="link" to="/"><AiFillHome className="react-icon"/></Link>
+                    </div>
+                    <div className="header__nav-icon">
+                        <Link className="link" to="/notfound"><RiMessengerLine className="react-icon"/></Link>
+                    </div>
+                    <div className="header__nav-icon">
+                        <Link className="link" to="/notfound"><FiPlusSquare className="react-icon"/></Link>
+                    </div>
+                    <div className="header__nav-icon">
+                        <Link className="link" to="/notfound"><RiCompass3Line className="react-icon"/></Link>
+                    </div>
+                    <div className="header__nav-icon">
+                        <Link className="link" to="/notfound"><MdOutlineFavoriteBorder className="react-icon"/></Link>
+                    </div>
+                    <div className="header__nav-icon"><Link className="link" to="/user">
+                        <UserAvatar
+                            avatar={"https://jabko.ua/image/cache/catalog/products/2021/03/231700/IMG_8624-420x420.jpg"}/>
+                    </Link>
+                    </div>
                 </div>
             </div>
         </div>

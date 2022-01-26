@@ -6,8 +6,8 @@ import "./Recommendation.scss"
 const Recommendation = () => {
     return (
         <div className='recommendation'>
-            <div>Пользователь</div>
-            <div>Рекомендации для вас</div>
+            <div className="recommendation__user">Пользователь</div>
+            <div className="recommendation__all">Рекомендации для вас</div>
             <div>
                 <div>1</div>
                 <div>2</div>
@@ -17,11 +17,11 @@ const Recommendation = () => {
                 <div>6</div>
             </div>
             <div>
-                <p>Информация Помощь Пресса API Вакансии</p>
-                <p>Конфиденциальность Условия Места</p>
-                <p>Популярные аккаунты Хэштеги Язык </p>
+                <p className="recommendation__info">Информация Помощь Пресса API Вакансии</p>
+                <p className="recommendation__info">Конфиденциальность Условия Места</p>
+                <p className="recommendation__info">Популярные аккаунты Хэштеги Язык </p>
             </div>
-            <div>© 2022 INSTAGRAM FROM META</div>
+            <p className="recommendation__signature">© 2022 INSTAGRAM FROM META</p>
         </div>
     );
 };
