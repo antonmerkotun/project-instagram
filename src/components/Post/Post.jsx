@@ -1,10 +1,14 @@
 import React from 'react';
+
+//style
 import "./Post.scss"
-import {MdOutlineFavoriteBorder} from "react-icons/md";
-import {AiOutlineMessage} from "react-icons/ai";
-import {RiSendPlaneFill} from "react-icons/ri";
-import {BsBookmarkStar} from "react-icons/bs";
+
+//components
 import UserAvatar from "../UserAvatar/UserAvatar";
+import IconFavorite from "../Icon/IconFavorite/IconFavorite";
+import IconMessagePost from "../Icon/IconMessagePost/IconMessagePost";
+import IconShare from "../Icon/IconShare/IconShare";
+import IconSave from "../Icon/IconSave/IconSave";
 
 
 const Post = (props) => {
@@ -14,7 +18,6 @@ const Post = (props) => {
         <div className="post">
             <div className="post__header">
                 <div className="post__header-user ">
-                    {/*<div className="post__header-avatar" style={{backgroundImage: `url(${avatar})`}}/>*/}
                     <div className="post__header-avatar">
                         <UserAvatar avatar={avatar}/>
                     </div>
@@ -36,15 +39,18 @@ const Post = (props) => {
             <div className="footer">
                 <div className="footer__communication">
                     <div>
-                        <button className="footer__communication-button"><MdOutlineFavoriteBorder
-                            className="footer-icon"/></button>
-                        <button className="footer__communication-button"><AiOutlineMessage className="footer-icon"/>
+                        <button className="footer__communication-button">
+                            <IconFavorite className="footer-icon"/></button>
+                        <button className="footer__communication-button">
+                            <IconMessagePost className="footer-icon"/>
                         </button>
-                        <button className="footer__communication-button"><RiSendPlaneFill className="footer-icon"/>
+                        <button className="footer__communication-button">
+                            <IconShare className="footer-icon"/>
                         </button>
                     </div>
                     <div>
-                        <button className="footer__communication-button"><BsBookmarkStar className="footer-icon"/>
+                        <button className="footer__communication-button">
+                            <IconSave className="footer-icon"/>
                         </button>
                     </div>
                 </div>

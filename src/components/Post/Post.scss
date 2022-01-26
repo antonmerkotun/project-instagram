@@ -58,23 +58,24 @@
 }
 
 
-.footer__communication {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 15px;
-  margin-top: 20px;
+.footer {
 
-  &-button {
-    background-color: #ffffff;
-    border: 0;
+  &__communication {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    margin-top: 20px;
 
-    &:hover {
-      cursor: pointer;
+    &-button {
+      background-color: #ffffff;
+      border: 0;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
-}
 
-.footer {
   &-icon {
     height: 28px;
     width: 28px;

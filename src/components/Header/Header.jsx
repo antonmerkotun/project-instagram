@@ -1,17 +1,17 @@
 import React from 'react';
+import {Link} from "react-router-dom";
+
 
 // style
 import "./Header.scss"
 
-// icon
-import {AiFillHome} from "react-icons/ai";
-import {RiCompass3Line, RiMessengerLine} from "react-icons/ri";
-import {FiPlusSquare} from "react-icons/fi";
-import {MdOutlineFavoriteBorder} from "react-icons/md";
-import {Link} from "react-router-dom";
-
 //components
 import UserAvatar from "../UserAvatar/UserAvatar";
+import IconHome from "../Icon/IconHome/IconHome";
+import IconMessage from "../Icon/IconMessage/IconMessage";
+import IconNewPost from "../Icon/IconNewPost/IconNewPost";
+import IconCompass from "../Icon/IconCompass/IconCompass";
+import IconFavorite from "../Icon/IconFavorite/IconFavorite";
 
 
 function Header() {
@@ -28,24 +28,35 @@ function Header() {
                 </div>
                 <div className="header__nav">
                     <div className="header__nav-icon">
-                        <Link className="link" to="/"><AiFillHome className="react-icon"/></Link>
+                        <Link className="link" to="/">
+                            <IconHome/>
+                        </Link>
                     </div>
                     <div className="header__nav-icon">
-                        <Link className="link" to="/notfound"><RiMessengerLine className="react-icon"/></Link>
+                        <Link className="link" to="/notfound">
+                            <IconMessage/>
+                        </Link>
                     </div>
                     <div className="header__nav-icon">
-                        <Link className="link" to="/notfound"><FiPlusSquare className="react-icon"/></Link>
+                        <Link className="link" to="/notfound">
+                            <IconNewPost/>
+                        </Link>
                     </div>
                     <div className="header__nav-icon">
-                        <Link className="link" to="/notfound"><RiCompass3Line className="react-icon"/></Link>
+                        <Link className="link" to="/notfound">
+                            <IconCompass/>
+                        </Link>
                     </div>
                     <div className="header__nav-icon">
-                        <Link className="link" to="/notfound"><MdOutlineFavoriteBorder className="react-icon"/></Link>
+                        <Link className="link" to="/notfound">
+                            <IconFavorite/>
+                        </Link>
                     </div>
-                    <div className="header__nav-icon"><Link className="link" to="/user">
-                        <UserAvatar
-                            avatar={"https://jabko.ua/image/cache/catalog/products/2021/03/231700/IMG_8624-420x420.jpg"}/>
-                    </Link>
+                    <div className="header__nav-icon">
+                        <Link className="link" to="/user">
+                            <UserAvatar
+                                avatar={"https://jabko.ua/image/cache/catalog/products/2021/03/231700/IMG_8624-420x420.jpg"}/>
+                        </Link>
                     </div>
                 </div>
             </div>
