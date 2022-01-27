@@ -8,7 +8,7 @@ const PostList = () => {
 
     return (
         <div className="post-list">
-            {LIST.map(() =>
+            {/*{LIST.map(() =>*/}
                 <li className="post-list-block">
                     <Post
                         userName={"Anton"}
@@ -17,7 +17,7 @@ const PostList = () => {
                         favoriteNumber={"123"}
                     />
                 </li>
-            )}
+            {/*)}*/}
         </div>
     );
 };
