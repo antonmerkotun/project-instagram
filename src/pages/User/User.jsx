@@ -1,15 +1,20 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+
+
 //style
 import "./User.scss"
+
 
 const User = () => {
     const [users, setUsers] = useState([])
 
-    fetch('/users')
-        .then(data => data.json())
-        .then(data => {
-            setUsers(data)
-        })
+    useEffect(() => {
+        fetch('/users')
+            .then(data => data.json())
+            .then(data => {
+                setUsers(data)
+            })
+    }, [])
 
 
     return (
@@ -17,7 +22,9 @@ const User = () => {
             {users.map(user => (
                 <div key={user._id}>
                     <div>{user.name}</div>
-                    <div>{user.avatar}</div>
+                    <div className="image-block">
+                    <div className="image" style={{backgroundImage: `url(${user.avatar})`}}/>
+                    </div>
                 </div>
             ))}
         </div>
