@@ -11,8 +11,7 @@ import IconShare from "../Icon/IconShare/IconShare";
 import IconSave from "../Icon/IconSave/IconSave";
 
 
-const Post = (props) => {
-    const {avatar, userName, content, favoriteNumber, lastComment, comments} = props
+const Post = ({avatar, name, lastName, post, favoriteNumber, lastComment, comments}) => {
 
     return (
         <div className="post">
@@ -22,7 +21,7 @@ const Post = (props) => {
                         <UserAvatar avatar={avatar}/>
                     </div>
                     <div>
-                        <p className="post__header-name">{userName}</p>
+                        <p className="post__header-name">{name} {lastName}</p>
                     </div>
                 </div>
                 <div className="post__header-user__burger">
@@ -34,7 +33,7 @@ const Post = (props) => {
                 </div>
             </div>
             <div className="post-content">
-                <div className="post-content_block" style={{backgroundImage: `url(${content})`}}/>
+                <div className="post-content_block" style={{backgroundImage: `url(${post})`}}/>
             </div>
             <div className="footer">
                 <div className="footer__communication">
