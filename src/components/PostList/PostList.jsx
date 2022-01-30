@@ -1,13 +1,19 @@
+//import
 import React, {useEffect, useState} from 'react';
-import "./PostList.scss"
-import Post from "../Post/Post";
-import {addTodo, getUsers} from "../../redux/ajax/users/getUsersAction";
+import {getUsers} from "../../redux/ajax/users/getUsersAction";
 import {useDispatch, useSelector} from "react-redux";
+
+//style
+import "./PostList.scss"
+
+//components
+import Post from "../Post/Post";
+import Loading from "../Loading/Loading";
 
 
 const PostList = () => {
     const dispatch = useDispatch()
-    const users = useSelector(state => state.getUsers.todos) || []
+    const usersStatus = useSelector(state => state.getUsers) || []
 
     useEffect(() => {
         dispatch(getUsers("/users"))
@@ -16,33 +22,24 @@ const PostList = () => {
 
     return (
         <div className="post-list">
-            {users.map((user) => {
-                    return user.posts.map(el => {
-                        return <li className="post-list-block" key={el._id}>
-                            <Post
-                                name={user.name}
-                                lastName={user.lastName}
-                                avatar={user.avatar}
-                                post={el.img}
-                                favoriteNumber={el.comments.length}
-                            />
-                        </li>
-                    })
-                }
-            )}
+            {usersStatus.loading === true ? <Loading/> : <>
+                {usersStatus.users.map((user) => {
+                        return user.posts.map(post => {
+                            return <li className="post-list-block" key={post._id}>
+                                <Post
+                                    nickName={user.nickName}
+                                    lastName={user.lastName}
+                                    avatar={user.avatar}
+                                    post={post.img}
+                                    favoriteNumber={post.comments.length}
+                                />
+                            </li>
+                        })
+                    }
+                )}</>
+            }
         </div>
     );
 };
 
 export default PostList;
-
-
-// <li className="post-list-block" key={user._id}>
-//     <Post
-//         name={user.name}
-//         lastName={user.lastName}
-//         avatar={user.avatar}
-//         post={user.posts}
-//         favoriteNumber={"123"}
-//     />
-// </li>

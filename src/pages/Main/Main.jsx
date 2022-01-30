@@ -1,3 +1,4 @@
+//import
 import React from 'react';
 
 //style
@@ -6,7 +7,6 @@ import "./Main.scss"
 //components
 import PostList from "../../components/PostList/PostList";
 import Recommendation from "../../components/Recommendation/Recommendation";
-
 
 
 const Main = () => {

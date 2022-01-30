@@ -2,7 +2,7 @@ import {GET_USERS_STARTED, GET_USERS_SUCCESS, GET_USERS_FAILURE} from "../../typ
 
 const initialState = {
     loading: false,
-    todos: [],
+    users: [],
     error: null
 };
 
@@ -17,7 +17,7 @@ export  function usersReducer(state = initialState, action) {
             return {
                 ...state,
                 loading: false,
-                todos: [...action.payload],
+                users: [...action.payload],
                 error: null
             };
         case GET_USERS_FAILURE:

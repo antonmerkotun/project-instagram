@@ -4,12 +4,12 @@ import {GET_USERS_STARTED, GET_USERS_SUCCESS, GET_USERS_FAILURE} from "../../typ
 export const getUsers = (API) => {
     return async dispatch => {
         dispatch(getUsersStarted())
-        setTimeout(() => {
+        // setTimeout(() => {
             fetch(API)
                 .then(res => res.json())
                 .then(res => dispatch(getUsersSuccess(res)))
                 .catch(err => dispatch(getUsersFailure(err.message)))
-        }, 100)
+        // }, 200)
     }
 }
 
@@ -17,9 +17,9 @@ const getUsersStarted = () => ({
     type: GET_USERS_STARTED
 })
 
-const getUsersSuccess = todo => ({
+const getUsersSuccess = users => ({
     type: GET_USERS_SUCCESS,
-    payload: todo
+    payload: users
 })
 
 const getUsersFailure = error => ({
