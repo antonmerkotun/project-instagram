@@ -3,10 +3,23 @@ import React from 'react';
 //style
 import "./Recommendation.scss"
 
-const Recommendation = () => {
+//components
+import UserAvatar from "../UserAvatar/UserAvatar";
+
+
+const Recommendation = ({account}) => {
     return (
-        <div className='recommendation'>
-            <div className="recommendation__user">Пользователь</div>
+        <div className='recommendation' key={account._id}>
+
+            <div>
+                <div className="recommendation__user-avatar">
+                    <UserAvatar avatar={account.avatar}/>
+                </div>
+                <div>
+                    <div className="recommendation__user">{account.nickName}</div>
+                    <div className="recommendation__user">{account.name} {account.lastName}</div>
+                </div>
+            </div>
             <div className="recommendation__all">Рекомендации для вас</div>
             <div>
                 <div>1</div>

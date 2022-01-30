@@ -10,23 +10,36 @@ const client = new MongoClient(url);
 
 
 client.connect(err => {
-    const usersCollections = client.db("instagram").collection("users");
-
     console.log("Connected server instagram")
 
+///////////////////////////////GET
+
+    const usersCollections = client.db("instagram").collection("users");
     app.get('/users', async function (req, res) {
         const findResult = await usersCollections.find({}).toArray();
 
         res.send(findResult);
     })
 
-    app.post('/users', async function (req, res) {
-        const userData = req.body
+    const accountCollections = client.db("instagram").collection("account");
+    app.get('/account', async function (req, res) {
+        const findResult = await accountCollections.find({}).toArray();
 
-        const insertResult = await usersCollections.insertMany([userData]);
-
-        res.sendStatus(200)
+        res.send(findResult);
     })
+
+////////////////////////////////
+
+
+
+
+    // app.post('/users', async function (req, res) {
+    //     const userData = req.body
+    //
+    //     const insertResult = await usersCollections.insertMany([userData]);
+    //
+    //     res.sendStatus(200)
+    // })
 
     app.listen(3005);
 });

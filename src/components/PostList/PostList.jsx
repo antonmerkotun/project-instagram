@@ -11,19 +11,12 @@ import Post from "../Post/Post";
 import Loading from "../Loading/Loading";
 
 
-const PostList = () => {
-    const dispatch = useDispatch()
-    const usersStatus = useSelector(state => state.getUsers) || []
-
-    useEffect(() => {
-        dispatch(getUsers("/users"))
-    }, [dispatch])
-
+const PostList = ({users}) => {
 
     return (
         <div className="post-list">
-            {usersStatus.loading === true ? <Loading/> : <>
-                {usersStatus.users.map((user) => {
+            {users.loading === true ? <Loading/> : <>
+                {users.users.map((user) => {
                         return user.posts.map(post => {
                             return <li className="post-list-block" key={post._id}>
                                 <Post

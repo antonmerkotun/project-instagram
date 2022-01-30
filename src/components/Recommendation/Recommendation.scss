@@ -1,6 +1,9 @@
 .recommendation {
   &__user {
-
+    &-avatar {
+      height: 56px;
+      width: 56px;
+    }
   }
 
   &__all {
