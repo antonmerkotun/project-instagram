@@ -12,9 +12,8 @@ import IconSave from "../Icon/IconSave/IconSave";
 
 
 const Post = ({avatar, nickName, post, favoriteNumber, comments}) => {
-
-    const lastComment = comments[comments.length - 1];
     console.log(comments)
+
     return (
         <div className="post">
             <div className="post__header">
@@ -61,7 +60,7 @@ const Post = ({avatar, nickName, post, favoriteNumber, comments}) => {
                 </div>
                 <div className="footer-comment">
                     <div className="footer-comment-content">Комментарии</div>
-                    <div className="footer-comment-all">{lastComment}</div>
+                    <div className="footer-comment-all">{comments}</div>
                     <button className="footer-comment-button">Посмотреть все комментарии</button>
                 </div>
                 <div className="footer-comment-add">
