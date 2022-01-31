@@ -11,8 +11,10 @@ import IconShare from "../Icon/IconShare/IconShare";
 import IconSave from "../Icon/IconSave/IconSave";
 
 
-const Post = ({avatar, nickName, post, favoriteNumber, lastComment, comments}) => {
+const Post = ({avatar, nickName, post, favoriteNumber, comments}) => {
 
+    const lastComment = comments[comments.length - 1];
+    console.log(comments)
     return (
         <div className="post">
             <div className="post__header">
@@ -58,8 +60,8 @@ const Post = ({avatar, nickName, post, favoriteNumber, lastComment, comments}) =
                     <p>{favoriteNumber} отметок "Нравится"</p>
                 </div>
                 <div className="footer-comment">
-                    <div className="footer-comment-content">{lastComment}Комментарии</div>
-                    <div style={{display: "none"}} className="footer-comment-all">{comments} все комментарии</div>
+                    <div className="footer-comment-content">Комментарии</div>
+                    <div className="footer-comment-all">{lastComment}</div>
                     <button className="footer-comment-button">Посмотреть все комментарии</button>
                 </div>
                 <div className="footer-comment-add">

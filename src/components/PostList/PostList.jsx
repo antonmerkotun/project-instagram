@@ -24,6 +24,7 @@ const PostList = ({users}) => {
                                     lastName={user.lastName}
                                     avatar={user.avatar}
                                     post={post.img}
+                                    comments={post.comments}
                                     favoriteNumber={post.comments.length}
                                 />
                             </li>

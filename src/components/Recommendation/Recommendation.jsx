@@ -5,6 +5,7 @@ import "./Recommendation.scss"
 
 //components
 import UserAvatar from "../UserAvatar/UserAvatar";
+import Loading from "../Loading/Loading";
 
 
 const Recommendation = ({account, recommendations}) => {
@@ -12,7 +13,9 @@ const Recommendation = ({account, recommendations}) => {
     const subscribe = (e) => {
         recommendations.users.forEach(el => {
             if (el._id === e.target.id) {
-                ///////////////
+                console.log(el)
+                console.log(e.target.innerText)
+                e.target.innerText = ""
             }
         })
     }
@@ -31,14 +34,14 @@ const Recommendation = ({account, recommendations}) => {
             </div>
             <div className="recommendation__all">Рекомендации для вас</div>
             <div className="recommendation-list">
-                {recommendations.users.map((user) => (
+                {recommendations.loading === true ? <Loading/> : recommendations.users.map((user) => (
                     <div className="recommendation-list-block" key={user._id}>
                         <div className="recommendation-list-user">
                             <div className="recommendation-list-user-avatar">
                                 <UserAvatar avatar={user.avatar}/>
                             </div>
                             <div className="recommendation-list-user-nickName">
-                                <p>{user.nickName}</p>
+                                <p className="recommendation-list-user-nickName-text">{user.nickName}</p>
                             </div>
                         </div>
                         <div>
