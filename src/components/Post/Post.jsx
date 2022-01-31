@@ -12,10 +12,9 @@ import IconSave from "../Icon/IconSave/IconSave";
 
 
 const Post = ({avatar, nickName, post, favoriteNumber, comments}) => {
+
     const [commentsShow, setCommentsShow] = useState(false)
-
     let lastComments = comments[comments.length - 1]
-
 
     const openCommentsAll = () => {
         setCommentsShow(true)
@@ -77,7 +76,7 @@ const Post = ({avatar, nickName, post, favoriteNumber, comments}) => {
                     commentsShow === false ? <button
                         className="footer-comment-button"
                         onClick={openCommentsAll}>
-                        Посмотреть все комментарии ({comments.length})
+                        Посмотреть все комментарии {comments.length}
                     </button> : ''}
                 </div>
                 <div className="footer-comment-add">
