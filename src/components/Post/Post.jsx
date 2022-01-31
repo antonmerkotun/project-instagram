@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 //style
 import "./Post.scss"
@@ -12,7 +12,14 @@ import IconSave from "../Icon/IconSave/IconSave";
 
 
 const Post = ({avatar, nickName, post, favoriteNumber, comments}) => {
-    console.log(comments)
+    const [commentsShow, setCommentsShow] = useState(false)
+
+    let lastComments = comments[comments.length - 1]
+
+
+    const openCommentsAll = () => {
+        setCommentsShow(true)
+    }
 
     return (
         <div className="post">
@@ -35,7 +42,6 @@ const Post = ({avatar, nickName, post, favoriteNumber, comments}) => {
             </div>
             <div className="post-content">
                 <div className="post-content_block" style={{backgroundImage: `url(${post})`}}/>
-                <img src="" alt=""/>
             </div>
             <div className="footer">
                 <div className="footer__communication">
@@ -56,12 +62,23 @@ const Post = ({avatar, nickName, post, favoriteNumber, comments}) => {
                     </div>
                 </div>
                 <div className="footer-favorite">
-                    <p>{favoriteNumber} отметок "Нравится"</p>
+                    {favoriteNumber} отметок "Нравится"
                 </div>
                 <div className="footer-comment">
-                    <div className="footer-comment-content">Комментарии</div>
-                    <div className="footer-comment-all">{comments}</div>
-                    <button className="footer-comment-button">Посмотреть все комментарии</button>
+                    <div className="footer-comment-all">
+                        {commentsShow === false ? lastComments :
+                            <div className="footer-comment-all-list">
+                                {comments.map((el) => {
+                                    return <div className="footer-comment-all-item" key={el}>{el}</div>
+                                })}
+                            </div>}
+                    </div>
+                    {comments.length >= 1 &&
+                    commentsShow === false ? <button
+                        className="footer-comment-button"
+                        onClick={openCommentsAll}>
+                        Посмотреть все комментарии ({comments.length})
+                    </button> : ''}
                 </div>
                 <div className="footer-comment-add">
                     <input className="footer-comment-add-input" type="text" placeholder="Добавьте комментарий"/>

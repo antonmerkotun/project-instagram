@@ -83,17 +83,32 @@
 
   &-favorite {
     padding-left: 20px;
+    color: #262626;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
   }
 
   &-comment {
     padding-left: 20px;
+
+    &-all {
+      margin-top: 10px;
+      color: #262626;
+      font-size: 14px;
+      line-height: 18px;
+
+      &-item {
+        margin-top: 5px;
+      }
+    }
 
     &-button {
       background-color: #ffffff;
       border: 0;
       color: #8e8e8e;
       padding: 0;
-
+      margin-top: 10px;
     }
 
     &-add {
@@ -108,7 +123,7 @@
       &-input {
         border: 0;
         outline: none;
-
+        width: 500px;
       }
 
       &-button {
@@ -117,6 +132,7 @@
         background-color: #ffffff;
         opacity: 0.3;
         font-size: 14px;
+
       }
     }
   }
