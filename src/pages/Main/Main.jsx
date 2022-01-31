@@ -32,7 +32,7 @@ const Main = () => {
             </div>
             <div className="list-people">
                 <div className="list-people-fixed">
-                    <Recommendation account={accountData.account}/>
+                    <Recommendation account={accountData.account} recommendations={usersData}/>
                 </div>
             </div>
         </div>

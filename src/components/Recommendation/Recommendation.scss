@@ -1,12 +1,78 @@
 .recommendation {
   &__user {
+    &-info {
+      display: flex;
+      align-items: center;
+    }
+
     &-avatar {
       height: 56px;
       width: 56px;
     }
+
+    &-name {
+      margin-left: 20px;
+    }
+
+    &-nickName {
+      color: #262626;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    &-fullName {
+      color: #8e8e8e;
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+
+  &-list {
+    &-block {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &-user {
+      align-items: center;
+      margin-top: 6px;
+      display: flex;
+
+
+      &-avatar {
+        height: 32px;
+        width: 32px;
+      }
+
+      &-nickName {
+        font-weight: 600;
+        color: #262626;
+        margin-left: 10px;
+        font-size: 14px;
+        line-height: 18px;
+      }
+
+      &-button {
+
+        border: 0;
+        background-color: #ffffff;
+        color: #0095f6;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 16px;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
   }
 
   &__all {
+    margin-top: 20px;
     color: #8e8e8e;
     font-weight: 600;
     font-size: 14px;

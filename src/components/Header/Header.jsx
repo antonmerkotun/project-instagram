@@ -14,7 +14,8 @@ import IconCompass from "../Icon/IconCompass/IconCompass";
 import IconFavorite from "../Icon/IconFavorite/IconFavorite";
 
 
-function Header() {
+function Header({account}) {
+
     return (
         <div className="header">
             <div className="header__container">
@@ -55,7 +56,7 @@ function Header() {
                     <div className="header__nav-icon">
                         <Link className="link" to="/user">
                             <UserAvatar
-                                avatar={"https://jabko.ua/image/cache/catalog/products/2021/03/231700/IMG_8624-420x420.jpg"}/>
+                                avatar={account.avatar}/>
                         </Link>
                     </div>
                 </div>
