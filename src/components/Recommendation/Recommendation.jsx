@@ -10,7 +10,11 @@ import UserAvatar from "../UserAvatar/UserAvatar";
 const Recommendation = ({account, recommendations}) => {
 
     const subscribe = (e) => {
-        console.log(e.target)
+        recommendations.users.forEach(el => {
+            if (el._id === e.target.id) {
+                ///////////////
+            }
+        })
     }
 
 
@@ -38,7 +42,9 @@ const Recommendation = ({account, recommendations}) => {
                             </div>
                         </div>
                         <div>
-                            <button id={user._id} className="recommendation-list-user-button" onClick={subscribe}>Подписаться</button>
+                            <button id={user._id} className="recommendation-list-user-button"
+                                    onClick={subscribe}>Подписаться
+                            </button>
                         </div>
                     </div>
                 ))}
