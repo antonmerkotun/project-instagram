@@ -15,6 +15,8 @@ const PostList = ({users}) => {
 
     return (
         <div className="post-list">
+
+            {users.error === "Unexpected token P in JSON at position 0" && "Произошла ошибка! Проверьте подключение к базе данных MongoDB."}
             {users.loading === true ? <Loading/> : <>
                 {users.users.map((user) => {
                         return user.posts.map(post => {
