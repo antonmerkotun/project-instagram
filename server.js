@@ -1,5 +1,5 @@
 const express = require('express');
-const {MongoClient} = require('mongodb')
+const {MongoClient, ObjectId} = require('mongodb')
 const bodyParser = require('body-parser')
 
 const app = express()
@@ -28,10 +28,31 @@ client.connect(err => {
         res.send(findResult);
     })
 
+    const userId = client.db("instagram").collection("users");
+    app.get('/users/:id', async function (req, res) {
+        const id = req.params.id
+
+        const findResult = await userId.find({_id: ObjectId(id)}).toArray();
+
+        findResult.forEach(e => {
+            console.log(e.posts)
+        })
+        res.send(findResult);
+    })
+
+
+
 ////////////////////////////////
 
 
+    const userPosts = client.db("instagram").collection("users");
+    app.post('/users/post/:id', async function (req, res) {
+        const id = req.params.id
 
+        const findResult = await userPosts.find({_id: ObjectId(id)}).toArray();
+
+        res.send(findResult);
+    })
 
     // app.post('/users', async function (req, res) {
     //     const userData = req.body
