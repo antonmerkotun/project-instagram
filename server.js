@@ -78,7 +78,6 @@ client.connect(err => {
         console.log(post.comments)
         // const insertResult = await usersCollections.insertMany([userData]);
 
-
         res.sendStatus(200)
     })
 
