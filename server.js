@@ -57,14 +57,14 @@ client.connect(err => {
         res.send(findResult);
     })
 
-//
+//POST
 
 
-    app.patch('/post/:id', async function (req, res) {
-        const newComment = req.body
+    app.post('/post/:id', async function (req, res) {
+        const userData = req.body
+        console.log(userData)
 
         const id = req.params.id
-
         let post;
         const userAll = await usersCollections.find({}).toArray();
         userAll.forEach(elem => {
@@ -74,15 +74,9 @@ client.connect(err => {
                 }
             })
         })
-        const comment = post.comments
-
-        const updateResult = await post.updateOne({comment}, {
-            $set: {
-                com: newComment
-            }
-        });
-
-        // console.log(post.comments)
+        post.comments.push(userData)
+        console.log(post.comments)
+        // const insertResult = await usersCollections.insertMany([userData]);
 
         res.sendStatus(200)
     })
