@@ -64,6 +64,18 @@ client.connect(err => {
         const userData = req.body
         console.log(userData)
 
+        const id = req.params.id
+        let post;
+        const userAll = await usersCollections.find({}).toArray();
+        userAll.forEach(elem => {
+            elem.posts.forEach(e => {
+                if (String(e._id) === id) {
+                    post = e;
+                }
+            })
+        })
+        post.comments.push(userData)
+        console.log(post.comments)
         // const insertResult = await usersCollections.insertMany([userData]);
 
 
