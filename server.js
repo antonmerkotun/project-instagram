@@ -10,8 +10,6 @@ const client = new MongoClient(url);
 const PORT = 3005
 
 client.connect(err => {
-    // const usersCollections = client.db("instagram").collection("users");
-    // const accountCollections = client.db("instagram").collection("account");
     const usersCollections = client.db("insta").collection("users");
     const postsCollections = client.db("insta").collection("posts");
     const commentsCollections = client.db("insta").collection("comments");
@@ -51,6 +49,23 @@ client.connect(err => {
         res.send(comments);
     })
 
+//
+//
+//
+//
+    app.listen(PORT, () => {
+        console.log(`Connected server to port ${PORT}`)
+    });
+});
+
+
+// client.connect(err => {
+// const usersCollections = client.db("instagram").collection("users");
+// const accountCollections = client.db("instagram").collection("account");
+
+//GET
+
+//User
 
 //     app.get('/users', async function (req, res) {
 //         const allUsers = await usersCollections.find({}).toArray();
@@ -96,29 +111,29 @@ client.connect(err => {
 //POST
 
 
-    // app.post('/post/:id', async function (req, res) {
-    //     const userData = req.body
-    //     console.log(userData)
-    //
-    //     const id = req.params.id
-    //     let post;
-    //     const userAll = await usersCollections.find({}).toArray();
-    //     userAll.forEach(elem => {
-    //         elem.posts.forEach(e => {
-    //             if (String(e._id) === id) {
-    //                 post = e;
-    //             }
-    //         })
-    //     })
-    //     post.comments.push(userData)
-    //     console.log(post.comments)
-    //     // const insertResult = await usersCollections.insertMany([userData]);
-    //
-    //     res.sendStatus(200)
-    // })
+// app.post('/post/:id', async function (req, res) {
+//     const userData = req.body
+//     console.log(userData)
+//
+//     const id = req.params.id
+//     let post;
+//     const userAll = await usersCollections.find({}).toArray();
+//     userAll.forEach(elem => {
+//         elem.posts.forEach(e => {
+//             if (String(e._id) === id) {
+//                 post = e;
+//             }
+//         })
+//     })
+//     post.comments.push(userData)
+//     console.log(post.comments)
+//     // const insertResult = await usersCollections.insertMany([userData]);
+//
+//     res.sendStatus(200)
+// })
 
 
-    app.listen(PORT, () => {
-        console.log(`Connected server to port ${PORT}`)
-    });
-});
+// app.listen(PORT, () => {
+//     console.log(`Connected server to port ${PORT}`)
+// });
+// });
