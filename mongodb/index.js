@@ -23,7 +23,7 @@ mongoose.connect('mongodb+srv://antonmerkotun:1996178dD@instagram.9subi.mongodb.
     user.save(function (err) {
         if (err) throw err;
 
-        console.log('renoromeuUser successfully saved.')
+        console.log('User successfully saved.')
 
         const firstPost = new Post({
             _id: new mongoose.Types.ObjectId(),
@@ -34,30 +34,30 @@ mongoose.connect('mongodb+srv://antonmerkotun:1996178dD@instagram.9subi.mongodb.
         firstPost.save(function (err) {
             if (err) throw err
 
-            console.log('firstPost successfully saved.')
+            console.log('Post successfully saved.')
 
             const firstPostCommentOne = new Comment({
                 _id: new mongoose.Types.ObjectId(),
                 user: user._id,
                 post: firstPost._id,
-                text: '1.1'
+                text: 'Коментарий 1 первого поста'
             })
             firstPostCommentOne.save(function (err) {
                 if (err) throw err
 
-                console.log('firstPostComment 1 successfully saved.')
+                console.log('Comment successfully saved.')
             })
 
             const firstPostCommentTwo = new Comment({
                 _id: new mongoose.Types.ObjectId(),
                 user: user._id,
                 post: firstPost._id,
-                text: '1.2'
+                text: 'Коментарий 2 первого поста'
             })
             firstPostCommentTwo.save(function (err) {
                 if (err) throw err
 
-                console.log('firstPostComment 2 successfully saved.')
+                console.log('Comment successfully saved.')
             })
         })
 
@@ -70,30 +70,30 @@ mongoose.connect('mongodb+srv://antonmerkotun:1996178dD@instagram.9subi.mongodb.
         secondPost.save(function (err) {
             if (err) throw err
 
-            console.log('secondPost successfully saved.')
+            console.log('Post successfully saved.')
 
             const firstPostCommentOne = new Comment({
                 _id: new mongoose.Types.ObjectId(),
                 user: user._id,
                 post: firstPost._id,
-                text: '2.1'
+                text: 'Коментарий 1 второго поста'
             })
             firstPostCommentOne.save(function (err) {
                 if (err) throw err
 
-                console.log('firstPostComment 1 successfully saved.')
+                console.log('Comment successfully saved.')
             })
 
             const firstPostCommentTwo = new Comment({
                 _id: new mongoose.Types.ObjectId(),
                 user: user._id,
                 post: firstPost._id,
-                text: '2.2'
+                text: 'Коментарий 2 второго поста'
             })
             firstPostCommentTwo.save(function (err) {
                 if (err) throw err
 
-                console.log('firstPostComment 2 successfully saved.')
+                console.log('Comment successfully saved.')
             })
         })
 
@@ -106,13 +106,13 @@ mongoose.connect('mongodb+srv://antonmerkotun:1996178dD@instagram.9subi.mongodb.
         thirdPost.save(function (err) {
             if (err) throw err
 
-            console.log('thirdPost successfully saved.')
+            console.log('Post successfully saved.')
 
             const firstPostCommentOne = new Comment({
                 _id: new mongoose.Types.ObjectId(),
                 user: user._id,
                 post: firstPost._id,
-                text: '3.1'
+                text: 'Коментарий 1 третьего поста'
             })
             firstPostCommentOne.save(function (err) {
                 if (err) throw err
@@ -124,7 +124,7 @@ mongoose.connect('mongodb+srv://antonmerkotun:1996178dD@instagram.9subi.mongodb.
                 _id: new mongoose.Types.ObjectId(),
                 user: user._id,
                 post: firstPost._id,
-                text: '3.2'
+                text: 'Коментарий 2 третьего поста'
             })
             firstPostCommentTwo.save(function (err) {
                 if (err) throw err
