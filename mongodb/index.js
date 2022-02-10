@@ -13,11 +13,11 @@ mongoose.connect('mongodb+srv://antonmerkotun:1996178dD@instagram.9subi.mongodb.
     const user = new User({
         _id: new mongoose.Types.ObjectId(),
         name: {
-            firstName: 'Reno',
-            lastName: 'Romeu',
-            nickName: 'renoromeu'
+            firstName: 'Chris',
+            lastName: 'Ishe',
+            nickName: 'Architecture'
         },
-        avatar: 'https://res.cloudinary.com/dxs9ky1l7/image/upload/v1643472888/users/Reno%20Romeu/avatar/RenoRomeu_avatar.jpg'
+        avatar: 'https://res.cloudinary.com/dxs9ky1l7/image/upload/v1643638901/users/Architecture%20Ishe/avatar/40077369_481968155615391_4343544733327425536_n_wrodgj.jpg'
     })
 
     user.save(function (err) {
@@ -28,7 +28,7 @@ mongoose.connect('mongodb+srv://antonmerkotun:1996178dD@instagram.9subi.mongodb.
         const firstPost = new Post({
             _id: new mongoose.Types.ObjectId(),
             user: user._id,
-            image: 'https://res.cloudinary.com/dxs9ky1l7/image/upload/v1643473576/users/Reno%20Romeu/posts/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2022-01-29_%D0%B2_18.26.09_rfzl4a.png'
+            image: 'https://res.cloudinary.com/dxs9ky1l7/image/upload/v1643638976/users/Architecture%20Ishe/posts/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA3_uf63e4.jpg'
         })
 
         firstPost.save(function (err) {
@@ -40,7 +40,7 @@ mongoose.connect('mongodb+srv://antonmerkotun:1996178dD@instagram.9subi.mongodb.
                 _id: new mongoose.Types.ObjectId(),
                 user: user._id,
                 post: firstPost._id,
-                text: 'Коментарий 1 первого поста'
+                text: 'Комментарий 1 первого поста'
             })
             firstPostCommentOne.save(function (err) {
                 if (err) throw err
@@ -52,7 +52,7 @@ mongoose.connect('mongodb+srv://antonmerkotun:1996178dD@instagram.9subi.mongodb.
                 _id: new mongoose.Types.ObjectId(),
                 user: user._id,
                 post: firstPost._id,
-                text: 'Коментарий 2 первого поста'
+                text: 'Комментарий 2 первого поста'
             })
             firstPostCommentTwo.save(function (err) {
                 if (err) throw err
@@ -64,7 +64,7 @@ mongoose.connect('mongodb+srv://antonmerkotun:1996178dD@instagram.9subi.mongodb.
         const secondPost = new Post({
             _id: new mongoose.Types.ObjectId(),
             user: user._id,
-            image: 'https://res.cloudinary.com/dxs9ky1l7/image/upload/v1643472967/users/Reno%20Romeu/posts/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2022-01-29_%D0%B2_18.16.03_wguicg.png'
+            image: 'https://res.cloudinary.com/dxs9ky1l7/image/upload/v1643638976/users/Architecture%20Ishe/posts/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_my2rpc.jpg'
         })
 
         secondPost.save(function (err) {
@@ -76,7 +76,7 @@ mongoose.connect('mongodb+srv://antonmerkotun:1996178dD@instagram.9subi.mongodb.
                 _id: new mongoose.Types.ObjectId(),
                 user: user._id,
                 post: firstPost._id,
-                text: 'Коментарий 1 второго поста'
+                text: 'Комментарий 1 второго поста'
             })
             firstPostCommentOne.save(function (err) {
                 if (err) throw err
@@ -88,7 +88,7 @@ mongoose.connect('mongodb+srv://antonmerkotun:1996178dD@instagram.9subi.mongodb.
                 _id: new mongoose.Types.ObjectId(),
                 user: user._id,
                 post: firstPost._id,
-                text: 'Коментарий 2 второго поста'
+                text: 'Комментарий 2 второго поста'
             })
             firstPostCommentTwo.save(function (err) {
                 if (err) throw err
@@ -100,7 +100,7 @@ mongoose.connect('mongodb+srv://antonmerkotun:1996178dD@instagram.9subi.mongodb.
         const thirdPost = new Post({
             _id: new mongoose.Types.ObjectId(),
             user: user._id,
-            image: 'https://res.cloudinary.com/dxs9ky1l7/image/upload/v1643472942/users/Reno%20Romeu/posts/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2022-01-29_%D0%B2_18.15.37_tvtxyy.png'
+            image: 'https://res.cloudinary.com/dxs9ky1l7/image/upload/v1643638976/users/Architecture%20Ishe/posts/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA2_wycgtc.jpg'
         })
 
         thirdPost.save(function (err) {
@@ -112,7 +112,7 @@ mongoose.connect('mongodb+srv://antonmerkotun:1996178dD@instagram.9subi.mongodb.
                 _id: new mongoose.Types.ObjectId(),
                 user: user._id,
                 post: firstPost._id,
-                text: 'Коментарий 1 третьего поста'
+                text: 'Комментарий 1 третьего поста'
             })
             firstPostCommentOne.save(function (err) {
                 if (err) throw err
@@ -124,7 +124,7 @@ mongoose.connect('mongodb+srv://antonmerkotun:1996178dD@instagram.9subi.mongodb.
                 _id: new mongoose.Types.ObjectId(),
                 user: user._id,
                 post: firstPost._id,
-                text: 'Коментарий 2 третьего поста'
+                text: 'Комментарий 2 третьего поста'
             })
             firstPostCommentTwo.save(function (err) {
                 if (err) throw err
