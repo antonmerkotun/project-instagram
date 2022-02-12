@@ -74,11 +74,25 @@ client.connect(err => {
 //
 //POST
 //User
-    app.post('/account/subscriptions', async function (req, res) {
+//     app.post('/account/subscriptions', async function (req, res) {
+//         const userData = req.body
+//         const id = req.params.id
+//         console.log(userData)
+//         const account = await accountCollections.updateOne({}, {$set: {subscriptions: [userData]}});
+//
+//         res.sendStatus(200);
+//     })
+
+
+
+
+
+//Subscriptions
+    app.post('/users/sub/set/:id', async function (req, res) {
         const userData = req.body
         const id = req.params.id
-        console.log(userData)
-        const account = await accountCollections.updateOne({}, {$set: {subscriptions: [userData]}});
+
+        const account = await usersCollections.updateOne({_id: ObjectId(id)}, {$set: userData});
 
         res.sendStatus(200);
     })
