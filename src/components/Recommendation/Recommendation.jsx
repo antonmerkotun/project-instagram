@@ -6,52 +6,25 @@ import "./Recommendation.scss"
 //components
 import UserAvatar from "../UserAvatar/UserAvatar";
 import Loading from "../Loading/Loading";
+import UsersList from "../usersList/UsersList";
 
 
-const Recommendation = ({account, recommendations}) => {
-
-    const subscribe = (e) => {
-        recommendations.users.forEach(el => {
-            if (el._id === e.target.id) {
-                console.log(el)
-                console.log(e.target.innerText)
-                e.target.innerText = ""
-            }
-        })
-    }
-
+const Recommendation = ({accountData, recommendations}) => {
 
     return (
-        <div className='recommendation' key={account._id}>
+        <div className='recommendation' key={accountData.account._id}>
             <div className="recommendation__user-info">
                 <div className="recommendation__user-avatar">
-                    <UserAvatar avatar={account.avatar}/>
+                    <UserAvatar avatar={accountData.account.avatar}/>
                 </div>
                 <div className="recommendation__user-name">
-                    <div className="recommendation__user-nickName">{account.nickName}</div>
-                    <div className="recommendation__user-fullName">{account.name} {account.lastName}</div>
+                    <div className="recommendation__user-nickName">{accountData.account.nickName}</div>
+                    <div className="recommendation__user-fullName">{accountData.account.name} {accountData.account.lastName}</div>
                 </div>
             </div>
+            {accountData.account.subscription && <UsersList users={accountData.account} button={false}/>}
             <div className="recommendation__all">Рекомендации для вас</div>
-            <div className="recommendation-list">
-                {recommendations.loading === true ? <Loading/> : recommendations.users.map((user) => (
-                    <div className="recommendation-list-block" key={user._id}>
-                        <div className="recommendation-list-user">
-                            <div className="recommendation-list-user-avatar">
-                                <UserAvatar avatar={user.avatar}/>
-                            </div>
-                            <div className="recommendation-list-user-nickName">
-                                <p className="recommendation-list-user-nickName-text">{user.nickName}</p>
-                            </div>
-                        </div>
-                        <div>
-                            <button id={user._id} className="recommendation-list-user-button"
-                                    onClick={subscribe}>Подписаться
-                            </button>
-                        </div>
-                    </div>
-                ))}
-            </div>
+            <UsersList users={recommendations.users} button={true}/>
             <div>
                 <p className="recommendation__info">Информация Помощь Пресса API Вакансии</p>
                 <p className="recommendation__info">Конфиденциальность Условия Места</p>

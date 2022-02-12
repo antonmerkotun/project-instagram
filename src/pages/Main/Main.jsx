@@ -14,25 +14,22 @@ import {getAccount} from "../../redux/ajax/account/getAccountAction";
 
 const Main = () => {
     const dispatch = useDispatch()
-    const usersData = useSelector(state => state.getUsers) || []
-    const accountData = useSelector(state => state.accountData) || []
-
-    useEffect(() => {
-        dispatch(getUsers("/users"))
-    }, [dispatch]);
+    const accountData = useSelector(state => state.accountData) || [];
+    const usersData = useSelector(state => state.getUsers) || [];
 
     useEffect(() => {
         dispatch(getAccount("/account"))
-    }, [dispatch])
+        dispatch(getUsers("/users"))
+    }, [dispatch]);
 
     return (
         <div className="page-main">
             <div className="post-feed">
-                <PostList users={usersData}/>
+                {/*<PostList accountData={accountData}/>*/}
             </div>
             <div className="list-people">
                 <div className="list-people-fixed">
-                    <Recommendation account={accountData.account} recommendations={usersData}/>
+                    {/*<Recommendation accountData={accountData} recommendations={usersData}/>*/}
                 </div>
             </div>
         </div>

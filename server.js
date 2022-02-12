@@ -1,6 +1,7 @@
 const express = require('express');
 const {MongoClient, ObjectId} = require('mongodb');
 const bodyParser = require('body-parser');
+const {response} = require("express");
 
 const app = express();
 app.use(bodyParser.json());
@@ -13,8 +14,15 @@ client.connect(err => {
     const usersCollections = client.db("insta").collection("users");
     const postsCollections = client.db("insta").collection("posts");
     const commentsCollections = client.db("insta").collection("comments");
+    const accountCollections = client.db("instagram").collection("account");
+
 
 //GET
+//Account
+    app.get('/account', async function (req, res) {
+        const findResult = await accountCollections.find({}).toArray();
+        res.send(findResult);
+    })
 
 //User
     app.get('/users', async function (req, res) {
@@ -26,6 +34,16 @@ client.connect(err => {
         const users = await usersCollections.find({_id: ObjectId(id)}).toArray();
         res.send(users);
     })
+
+    app.get('/users/sub/true', async function (req, res) {
+        const users = await usersCollections.find({subscriptions: true}).toArray();
+        res.send(users);
+    })
+    app.get('/users/sub/false', async function (req, res) {
+        const users = await usersCollections.find({subscriptions: false}).toArray();
+        res.send(users);
+    })
+
 
 //Posts
     app.get('/posts', async function (req, res) {
@@ -49,6 +67,25 @@ client.connect(err => {
         res.send(comments);
     })
 
+//
+//
+//
+//
+//
+//POST
+//User
+    app.post('/account/subscriptions', async function (req, res) {
+        const userData = req.body
+        const id = req.params.id
+        console.log(userData)
+        const account = await accountCollections.updateOne({}, {$set: {subscriptions: [userData]}});
+
+        res.sendStatus(200);
+    })
+
+//
+//
+//
 //
 //
 //
