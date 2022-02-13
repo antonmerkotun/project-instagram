@@ -9,7 +9,7 @@ import Loading from "../Loading/Loading";
 import UsersList from "../usersList/UsersList";
 
 
-const Recommendation = ({accountData, recommendations}) => {
+const Recommendation = ({accountData, subscriptions, recommendations}) => {
 
     return (
         <div className='recommendation' key={accountData.account._id}>
@@ -19,12 +19,14 @@ const Recommendation = ({accountData, recommendations}) => {
                 </div>
                 <div className="recommendation__user-name">
                     <div className="recommendation__user-nickName">{accountData.account.nickName}</div>
-                    <div className="recommendation__user-fullName">{accountData.account.name} {accountData.account.lastName}</div>
+                    <div
+                        className="recommendation__user-fullName">{accountData.account.name} {accountData.account.lastName}</div>
                 </div>
             </div>
-            {accountData.account.subscription && <UsersList users={accountData.account} button={false}/>}
+            <div className="recommendation__all">Вы подписаны</div>
+            <UsersList users={subscriptions.data} button={"del"}/>
             <div className="recommendation__all">Рекомендации для вас</div>
-            <UsersList users={recommendations.users} button={true}/>
+            <UsersList users={recommendations.data} button={"sav"}/>
             <div>
                 <p className="recommendation__info">Информация Помощь Пресса API Вакансии</p>
                 <p className="recommendation__info">Конфиденциальность Условия Места</p>

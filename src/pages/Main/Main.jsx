@@ -36,11 +36,12 @@ const Main = () => {
     return (
         <div className="page-main">
             <div className="post-feed">
-                <PostList accountData={accountData}/>
+                <PostList accountData={subscriptionsTrue}/>
             </div>
             <div className="list-people">
                 <div className="list-people-fixed">
-                    {/*<Recommendation accountData={accountData} recommendations={usersData}/>*/}
+                    <Recommendation accountData={accountData} subscriptions={subscriptionsTrue}
+                                    recommendations={subscriptionsFalse}/>
                 </div>
             </div>
         </div>

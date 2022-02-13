@@ -12,12 +12,12 @@ import Loading from "../Loading/Loading";
 
 
 const PostList = ({accountData}) => {
-
+    console.log(accountData)
     return (
         <div className="post-list">
             {accountData.error === "Unexpected token P in JSON at position 0" && "Произошла ошибка! Проверьте подключение к базе данных MongoDB."}
             {accountData.loading === true ? <Loading/> : <>
-                {accountData.account.subscriptions === undefined ? <p>нету подписок</p> : <>
+                {/*{accountData.account.subscriptions === undefined ? <p>нету подписок</p> : <>*/}
                     {/*{accountData.account.subscriptions.length === 0 ? '' : accountData.account.subscriptions.map((user) => {*/}
                     {/*        return accountData.account.subscriptions.map(post => {*/}
                     {/*            return <li className="post-list-block" key={post._id}>*/}
@@ -33,8 +33,8 @@ const PostList = ({accountData}) => {
                     {/*        })*/}
                     {/*    }*/}
                     {/*)}*/}
-                </>
-                }
+                {/*</>*/}
+                {/*}*/}
             </>
             }
         </div>
