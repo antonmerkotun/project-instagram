@@ -24,6 +24,7 @@ const Main = ({accountData, usersData, subscriptionsTrue, subscriptionsFalse, po
     return (
         <div className="page-main">
             <div className="post-feed">
+                {/*{console.log(subscriptionsTrue)}*/}
                 <PostList usersData={subscriptionsTrue} postsData={postsData} commentsData={commentsData}/>
             </div>
             <div className="list-people">

@@ -11,17 +11,18 @@ import IconShare from "../Icon/IconShare/IconShare";
 import IconSave from "../Icon/IconSave/IconSave";
 
 
-const Post = ({avatar, nickName, post, favoriteNumber, comments}) => {
+const Post = ({nickName, avatar, post, commentsData, idPost, idUser}) => {
 
-    const [commentsShow, setCommentsShow] = useState(false)
-    let lastComments = comments[comments.length - 1]
-
+    // const [commentsShow, setCommentsShow] = useState(false)
+    // let lastComments = comments[comments.length - 1]
+    // console.log(commentsData)
     const openCommentsAll = () => {
-        setCommentsShow(true)
+        // setCommentsShow(true)
     }
 
     return (
         <div className="post">
+
             <div className="post__header">
                 <div className="post__header-user ">
                     <div className="post__header-avatar">
@@ -61,23 +62,28 @@ const Post = ({avatar, nickName, post, favoriteNumber, comments}) => {
                     </div>
                 </div>
                 <div className="footer-favorite">
-                    {favoriteNumber} отметок "Нравится"
+                    отметок "Нравится"
                 </div>
                 <div className="footer-comment">
                     <div className="footer-comment-all">
-                        {commentsShow === false ? lastComments :
-                            <div className="footer-comment-all-list">
-                                {comments.map((el) => {
-                                    return <div className="footer-comment-all-item" key={el}>{el}</div>
-                                })}
-                            </div>}
+                        {/*{commentsData.data.map(comments => {*/}
+                        {/*    if (comments.post === idPost){*/}
+                        {/*       return <div className="footer-comment-all-item" >{comments.text}</div>*/}
+                        {/*    }*/}
+                        {/*})}*/}
+                        {/*{commentsShow === false ? lastComments :*/}
+                        {/*    <div className="footer-comment-all-list">*/}
+                        {/*        {comments.map((el) => {*/}
+                        {/*            return <div className="footer-comment-all-item" key={el}>{el}</div>*/}
+                        {/*        })}*/}
+                        {/*    </div>}*/}
                     </div>
-                    {comments.length >= 1 &&
-                    commentsShow === false ? <button
-                        className="footer-comment-button"
-                        onClick={openCommentsAll}>
-                        Посмотреть все комментарии {comments.length}
-                    </button> : ''}
+                    {/*{comments.length >= 1 &&*/}
+                    {/*commentsShow === false ? <button*/}
+                    {/*    className="footer-comment-button"*/}
+                    {/*    onClick={openCommentsAll}>*/}
+                    {/*    Посмотреть все комментарии {comments.length}*/}
+                    {/*</button> : ''}*/}
                 </div>
                 <div className="footer-comment-add">
                     <input className="footer-comment-add-input" type="text" placeholder="Добавьте комментарий"/>

@@ -40,7 +40,6 @@ function App() {
     return (
         <BrowserRouter>
             <div className="container">
-                {/*{console.log(postsData)}*/}
                 <Header account={accountData.account}/>
                 <div className="scroll-block">
                     <Routes>
