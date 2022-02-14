@@ -14,6 +14,8 @@ import {
 import {
     getSubscriptionsFalseAction
 } from "./redux/ajax/subscriptions/getSubscriptions/SubscriptionsFalse/getSubscriptionsFalseAction";
+import {getPostsAction} from "./redux/ajax/posts/getPosts/getPostsAction";
+import {getCommentsAction} from "./redux/ajax/comments/getComments/getCommentsAction";
 
 function App() {
     const dispatch = useDispatch()
@@ -21,8 +23,8 @@ function App() {
     const usersData = useSelector(state => state.getUsers) || [];
     const subscriptionsTrue = useSelector(state => state.subscriptionsTrue) || [];
     const subscriptionsFalse = useSelector(state => state.subscriptionsFalse) || [];
-    const postsData = useSelector(state => state.postsData) || [];
-    const commentsData = useSelector(state => state.commentsData) || [];
+    const postsData = useSelector(state => state.getPosts) || [];
+    const commentsData = useSelector(state => state.getComments) || [];
 
 
     useEffect(() => {
@@ -30,12 +32,15 @@ function App() {
         dispatch(getUsers("/users"))
         dispatch(getSubscriptionsTrueAction("/users/sub/true"))
         dispatch(getSubscriptionsFalseAction("/users/sub/false"))
+        dispatch(getPostsAction("/posts"))
+        dispatch(getCommentsAction("/comments"))
     }, [dispatch]);
 
 
     return (
         <BrowserRouter>
             <div className="container">
+                {/*{console.log(postsData)}*/}
                 <Header account={accountData.account}/>
                 <div className="scroll-block">
                     <Routes>

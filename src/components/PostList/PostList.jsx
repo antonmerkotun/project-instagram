@@ -13,14 +13,10 @@ import Loading from "../Loading/Loading";
 
 const PostList = ({usersData, postsData, commentsData}) => {
 
-    useEffect(() => {
-        console.log(usersData)
-        console.log(postsData)
-        console.log(commentsData)
-    }, [usersData])
 
     return (
         <div className="post-list">
+            {console.log(commentsData)}
             {/*{postsData.error === "Unexpected token P in JSON at position 0" && "Произошла ошибка! Проверьте подключение к базе данных MongoDB."}*/}
             {/*{postsData.loading === true ? <Loading/> : <>*/}
             {/*    {postsData.data === undefined ? <p>нету подписок</p> : <>*/}

@@ -7,11 +7,14 @@ import {
 import {
     getSubscriptionsFalseReducer
 } from "./ajax/subscriptions/getSubscriptions/SubscriptionsFalse/getSubscriptionsFalseReducer";
+import {getPostsReducer} from "./ajax/posts/getPosts/getPostsReducer";
+import {getCommentsReducer} from "./ajax/comments/getComments/getCommentsReducer";
 
 export const rootReducer = combineReducers({
     getUsers: usersReducer,
     accountData: accountReducer,
     subscriptionsTrue: getSubscriptionsTrueReducer,
-    subscriptionsFalse: getSubscriptionsFalseReducer
-    // postList: postListReducer,
+    subscriptionsFalse: getSubscriptionsFalseReducer,
+    getPosts: getPostsReducer,
+    getComments: getCommentsReducer,
 })
