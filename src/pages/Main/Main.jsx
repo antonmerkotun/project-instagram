@@ -18,25 +18,13 @@ import {
 } from "../../redux/ajax/subscriptions/getSubscriptions/SubscriptionsFalse/getSubscriptionsFalseAction";
 
 
-const Main = () => {
-    const dispatch = useDispatch()
-    const accountData = useSelector(state => state.accountData) || [];
-    const usersData = useSelector(state => state.getUsers) || [];
-    const subscriptionsTrue = useSelector(state => state.subscriptionsTrue) || [];
-    const subscriptionsFalse = useSelector(state => state.subscriptionsFalse) || [];
+const Main = ({accountData, usersData, subscriptionsTrue, subscriptionsFalse, postsData, commentsData}) => {
 
-
-    useEffect(() => {
-        dispatch(getAccount("/account"))
-        dispatch(getUsers("/users"))
-        dispatch(getSubscriptionsTrueAction("/users/sub/true"))
-        dispatch(getSubscriptionsFalseAction("/users/sub/false"))
-    }, [dispatch]);
 
     return (
         <div className="page-main">
             <div className="post-feed">
-                <PostList accountData={subscriptionsTrue}/>
+                <PostList usersData={subscriptionsTrue} postsData={postsData} commentsData={commentsData}/>
             </div>
             <div className="list-people">
                 <div className="list-people-fixed">
