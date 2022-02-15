@@ -28,12 +28,12 @@ function App() {
 
 
     useEffect(() => {
-        dispatch(getAccount("/account"))
-        dispatch(getUsers("/users"))
-        dispatch(getSubscriptionsTrueAction("/users/sub/true"))
-        dispatch(getSubscriptionsFalseAction("/users/sub/false"))
-        dispatch(getPostsAction("/posts"))
-        dispatch(getCommentsAction("/comments"))
+        dispatch(getAccount())
+        dispatch(getUsers())
+        dispatch(getSubscriptionsTrueAction())
+        dispatch(getSubscriptionsFalseAction())
+        dispatch(getPostsAction())
+        dispatch(getCommentsAction())
     }, []);
 
 

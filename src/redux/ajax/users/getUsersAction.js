@@ -1,11 +1,11 @@
 import {GET_USERS_STARTED, GET_USERS_SUCCESS, GET_USERS_FAILURE} from "../../types";
 
 
-export const getUsers = (API) => {
+export const getUsers = () => {
     return async dispatch => {
         dispatch(getUsersStarted())
         // setTimeout(() => {
-            fetch(API)
+            fetch("/users")
                 .then(res => res.json())
                 .then(res => dispatch(getUsersSuccess(res)))
                 .catch(err => dispatch(getUsersFailure(err.message)))

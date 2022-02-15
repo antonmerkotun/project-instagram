@@ -1,10 +1,10 @@
 import {GET_SUBSCRIPTIONS_FALSE_STARTED, GET_SUBSCRIPTIONS_FALSE_SUCCESS, GET_SUBSCRIPTIONS_FALSE_FAILURE} from "../../../../types";
 
-export const getSubscriptionsFalseAction = (API) => {
+export const getSubscriptionsFalseAction = () => {
     return async dispatch => {
         dispatch(getSubscriptionsFalseStarted())
         // setTimeout(() => {
-            fetch(API)
+            fetch("/users/sub/false")
                 .then(res => res.json())
                 .then(res => dispatch(getSubscriptionsFalseSuccess(res)))
                 .catch(err => dispatch(getSubscriptionsFalseFailure(err.message)))

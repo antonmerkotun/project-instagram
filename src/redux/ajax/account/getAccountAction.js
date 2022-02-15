@@ -1,10 +1,10 @@
 import {GET_ACCOUNT_STARTED, GET_ACCOUNT_SUCCESS, GET_ACCOUNT_FAILURE} from "../../types";
 
-export const getAccount = (API) => {
+export const getAccount = () => {
     return async dispatch => {
         dispatch(getAccountStarted())
         // setTimeout(() => {
-            fetch(API)
+            fetch("/account")
                 .then(res => res.json())
                 .then(res => dispatch(getAccountSuccess(res)))
                 .catch(err => dispatch(getAccountFailure(err.message)))

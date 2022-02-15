@@ -1,20 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {useDispatch} from "react-redux";
+import {postCommentsAction} from "../../redux/ajax/comments/postComments/postCommentsAction";
 
-const Input = ({idUser,idPost}) => {
 
-    const sendingData = (e) => {
-        console.log(e.target.id)
-    }
+const Input = ({idUser, idPost}) => {
+    const [value, setValue] = useState('')
+    const dispatch = useDispatch()
 
-    const inputChange = (e) => {
-        console.log(e.target.value)
+
+    const addComment = (e) => {
+        dispatch(postCommentsAction(idUser, idPost, value))
+        // e.preventDefault()
+        setValue('')
     }
 
     return (
-        <div className="footer-comment-add">
-            <input className="footer-comment-add-input" type="text" placeholder="Добавьте комментарий" onChange={inputChange}/>
-            <button className="footer-comment-add-button" id={idPost} onClick={sendingData}>Опубликовать</button>
-        </div>
+        <form className="footer-comment-add" onSubmit={addComment}>
+            <input className="footer-comment-add-input" placeholder="Добавьте комментарий" value={value}
+                   onChange={event => setValue(event.target.value)}/>
+            <button className="footer-comment-add-button" id={idPost} type="submit">Опубликовать</button>
+        </form>
     );
 };
 

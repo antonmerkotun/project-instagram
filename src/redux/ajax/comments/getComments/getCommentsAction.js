@@ -1,9 +1,9 @@
 import {GET_COMMENTS_STARTED, GET_COMMENTS_SUCCESS, GET_COMMENTS_FAILURE} from "../../../types";
 
-export const getCommentsAction = (API) => {
+export const getCommentsAction = () => {
     return async dispatch => {
         dispatch(getCommentsStarted())
-        fetch(API)
+        fetch("/comments")
             .then(res => res.json())
             .then(res => dispatch(getCommentsSuccess(res)))
             .catch(err => dispatch(getCommentsFailure(err.message)))

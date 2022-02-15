@@ -1,9 +1,9 @@
 import {GET_POSTS_STARTED, GET_POSTS_SUCCESS, GET_POSTS_FAILURE} from "../../../types";
 
-export const getPostsAction = (API) => {
+export const getPostsAction = () => {
     return async dispatch => {
         dispatch(getPostsStarted())
-        fetch(API)
+        fetch("/posts")
             .then(res => res.json())
             .then(res => dispatch(getPostsSuccess(res)))
             .catch(err => dispatch(getPostsFailure(err.message)))

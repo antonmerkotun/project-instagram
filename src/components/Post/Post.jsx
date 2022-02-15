@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 //style
 import "./Post.scss"
@@ -29,7 +29,7 @@ const Post = ({nickName, avatar, post, comments, idPost, idUser}) => {
                         <UserAvatar avatar={avatar}/>
                     </div>
                     <div>
-                        <p className="post__header-name">{nickName} {idUser}</p>
+                        <p className="post__header-name">{nickName}</p>
                     </div>
                 </div>
                 <div className="post__header-user__burger">
@@ -62,7 +62,7 @@ const Post = ({nickName, avatar, post, comments, idPost, idUser}) => {
                     </div>
                 </div>
                 <div className="footer-favorite">
-                    ({idPost}) --- отметок "Нравится"
+                    {/*отметок "Нравится"*/}
                 </div>
                 <div className="footer-comment">
                     <div className="footer-comment-all">
