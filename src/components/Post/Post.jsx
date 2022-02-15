@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 
 //style
 import "./Post.scss"
@@ -9,14 +9,13 @@ import IconFavorite from "../Icon/IconFavorite/IconFavorite";
 import IconMessagePost from "../Icon/IconMessagePost/IconMessagePost";
 import IconShare from "../Icon/IconShare/IconShare";
 import IconSave from "../Icon/IconSave/IconSave";
-import {logDOM} from "@testing-library/react";
 
 
 const Post = ({nickName, avatar, post, comments, idPost, idUser}) => {
 
     const [commentsShow, setCommentsShow] = useState(false)
-    let lastComments = comments[comments.length - 1]
-    console.log(comments)
+    let lastComments = comments[comments.length - 1] || {text: "нету комментариев"}
+
     const openCommentsAll = () => {
         setCommentsShow(true)
     }
@@ -29,7 +28,7 @@ const Post = ({nickName, avatar, post, comments, idPost, idUser}) => {
                         <UserAvatar avatar={avatar}/>
                     </div>
                     <div>
-                        <p className="post__header-name">{nickName}</p>
+                        <p className="post__header-name">{nickName} {idUser}</p>
                     </div>
                 </div>
                 <div className="post__header-user__burger">
@@ -66,10 +65,11 @@ const Post = ({nickName, avatar, post, comments, idPost, idUser}) => {
                 </div>
                 <div className="footer-comment">
                     <div className="footer-comment-all">
-                        {commentsShow === false ? <p>lastComments</p> :
+                        {commentsShow === false ? <p>{lastComments.text}</p> :
                             <div className="footer-comment-all-list">
                                 {comments.map((comment) => {
-                                    return <div className="footer-comment-all-item" key={comment._id}>{comment.text}</div>
+                                    return <div className="footer-comment-all-item"
+                                                key={comment._id}>{comment.text}</div>
                                 })}
                             </div>
                         }

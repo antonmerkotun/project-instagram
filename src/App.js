@@ -20,7 +20,7 @@ import {getCommentsAction} from "./redux/ajax/comments/getComments/getCommentsAc
 function App() {
     const dispatch = useDispatch()
     const accountData = useSelector(state => state.accountData)
-    const usersData = useSelector(state => state.getUsers)
+    // const usersData = useSelector(state => state.getUsers)
     const subscriptionsTrue = useSelector(state => state.subscriptionsTrue)
     const subscriptionsFalse = useSelector(state => state.subscriptionsFalse)
     const postsData = useSelector(state => state.getPosts)
@@ -48,8 +48,7 @@ function App() {
                                   subscriptionsFalse={subscriptionsFalse}
                                   subscriptionsTrue={subscriptionsTrue}
                                   postsData={postsData}
-                                  commentsData={commentsData}
-                                  usersData={usersData}/>}/>
+                                  commentsData={commentsData}/>}/>
                         <Route exact path="/user" element={<User/>}/>
                         <Route exact path="/notfound" element={<NotFound/>}/>
                     </Routes>

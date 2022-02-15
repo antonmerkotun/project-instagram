@@ -1,5 +1,5 @@
 //import
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 
 
 //style
@@ -30,28 +30,6 @@ const PostList = ({usersData, postsData, commentsData}) => {
                     }
                 })
             })}
-
-
-            {/*{postsData.loading === true ? <Loading/> : <>*/}
-            {/*    {postsData.data === undefined ? <p>нету подписок</p> : <>*/}
-            {/*{accountData.account.subscriptions.length === 0 ? '' : accountData.account.subscriptions.map((user) => {*/}
-            {/*        return accountData.account.subscriptions.map(post => {*/}
-            {/*            return <li className="post-list-block" key={post._id}>*/}
-            {/*                <Post*/}
-            {/*                    nickName={user.nickName}*/}
-            {/*                    avatar={user.avatar}*/}
-            {/*                    post={post.img}*/}
-            {/*                    comments={post.comments}*/}
-            {/*                    favoriteNumber={post.comments.length}*/}
-            {/*                />*/}
-            {/*            </li>*/}
-            {/*        })*/}
-            {/*    }*/}
-            {/*)}*/}
-            {/*</>*/}
-            {/*}*/}
-            {/*</>*/}
-            {/*}*/}
         </div>
     );
 };

@@ -1,6 +1,5 @@
 //import
-import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from "react-redux";
+import React from 'react';
 
 //style
 import "./Main.scss"
@@ -8,23 +7,13 @@ import "./Main.scss"
 //components
 import PostList from "../../components/PostList/PostList";
 import Recommendation from "../../components/Recommendation/Recommendation";
-import {getUsers} from "../../redux/ajax/users/getUsersAction";
-import {getAccount} from "../../redux/ajax/account/getAccountAction";
-import {
-    getSubscriptionsTrueAction
-} from "../../redux/ajax/subscriptions/getSubscriptions/SubscriptionsTrue/getSubscriptionsTrueAction";
-import {
-    getSubscriptionsFalseAction
-} from "../../redux/ajax/subscriptions/getSubscriptions/SubscriptionsFalse/getSubscriptionsFalseAction";
 
 
-const Main = ({accountData, usersData, subscriptionsTrue, subscriptionsFalse, postsData, commentsData}) => {
-
+const Main = ({accountData, subscriptionsTrue, subscriptionsFalse, postsData, commentsData}) => {
 
     return (
         <div className="page-main">
             <div className="post-feed">
-                {/*{console.log(subscriptionsTrue)}*/}
                 <PostList usersData={subscriptionsTrue} postsData={postsData} commentsData={commentsData}/>
             </div>
             <div className="list-people">
