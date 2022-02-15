@@ -91,7 +91,6 @@ client.connect(err => {
     app.post('/users/sub/set/:id', async function (req, res) {
         const userData = req.body
         const id = req.params.id
-        console.log(userData)
         const account = await usersCollections.updateOne({_id: ObjectId(id)}, {$set: userData});
 
         res.sendStatus(200);

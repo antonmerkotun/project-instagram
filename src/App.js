@@ -19,12 +19,12 @@ import {getCommentsAction} from "./redux/ajax/comments/getComments/getCommentsAc
 
 function App() {
     const dispatch = useDispatch()
-    const accountData = useSelector(state => state.accountData) || []
-    const usersData = useSelector(state => state.getUsers) || [];
-    const subscriptionsTrue = useSelector(state => state.subscriptionsTrue) || [];
-    const subscriptionsFalse = useSelector(state => state.subscriptionsFalse) || [];
-    const postsData = useSelector(state => state.getPosts) || [];
-    const commentsData = useSelector(state => state.getComments) || [];
+    const accountData = useSelector(state => state.accountData)
+    const usersData = useSelector(state => state.getUsers)
+    const subscriptionsTrue = useSelector(state => state.subscriptionsTrue)
+    const subscriptionsFalse = useSelector(state => state.subscriptionsFalse)
+    const postsData = useSelector(state => state.getPosts)
+    const commentsData = useSelector(state => state.getComments)
 
 
     useEffect(() => {
@@ -34,7 +34,7 @@ function App() {
         dispatch(getSubscriptionsFalseAction("/users/sub/false"))
         dispatch(getPostsAction("/posts"))
         dispatch(getCommentsAction("/comments"))
-    }, [dispatch]);
+    }, []);
 
 
     return (

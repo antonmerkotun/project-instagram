@@ -14,8 +14,10 @@ const userSchema = mongoose.Schema({
         }
     },
     avatar: String,
-    subscriptions: [],
-    subscribers: [],
+    subscriptions: {
+        type: Boolean,
+        required: true
+    },
 
     created: {
         type: Date,

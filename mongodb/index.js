@@ -13,11 +13,12 @@ mongoose.connect('mongodb+srv://antonmerkotun:1996178dD@instagram.9subi.mongodb.
     const user = new User({
         _id: new mongoose.Types.ObjectId(),
         name: {
-            firstName: 'Chris',
+            firstName: 'Architecture ',
             lastName: 'Ishe',
-            nickName: 'Architecture'
+            nickName: 'ishearchitecture'
         },
-        avatar: 'https://res.cloudinary.com/dxs9ky1l7/image/upload/v1643638901/users/Architecture%20Ishe/avatar/40077369_481968155615391_4343544733327425536_n_wrodgj.jpg'
+        avatar: 'https://res.cloudinary.com/dxs9ky1l7/image/upload/v1643638901/users/Architecture%20Ishe/avatar/40077369_481968155615391_4343544733327425536_n_wrodgj.jpg',
+        subscriptions: false
     })
 
     user.save(function (err) {
@@ -75,7 +76,7 @@ mongoose.connect('mongodb+srv://antonmerkotun:1996178dD@instagram.9subi.mongodb.
             const firstPostCommentOne = new Comment({
                 _id: new mongoose.Types.ObjectId(),
                 user: user._id,
-                post: firstPost._id,
+                post: secondPost._id,
                 text: 'Комментарий 1 второго поста'
             })
             firstPostCommentOne.save(function (err) {
@@ -87,7 +88,7 @@ mongoose.connect('mongodb+srv://antonmerkotun:1996178dD@instagram.9subi.mongodb.
             const firstPostCommentTwo = new Comment({
                 _id: new mongoose.Types.ObjectId(),
                 user: user._id,
-                post: firstPost._id,
+                post: secondPost._id,
                 text: 'Комментарий 2 второго поста'
             })
             firstPostCommentTwo.save(function (err) {
@@ -111,7 +112,7 @@ mongoose.connect('mongodb+srv://antonmerkotun:1996178dD@instagram.9subi.mongodb.
             const firstPostCommentOne = new Comment({
                 _id: new mongoose.Types.ObjectId(),
                 user: user._id,
-                post: firstPost._id,
+                post: thirdPost._id,
                 text: 'Комментарий 1 третьего поста'
             })
             firstPostCommentOne.save(function (err) {
@@ -123,7 +124,7 @@ mongoose.connect('mongodb+srv://antonmerkotun:1996178dD@instagram.9subi.mongodb.
             const firstPostCommentTwo = new Comment({
                 _id: new mongoose.Types.ObjectId(),
                 user: user._id,
-                post: firstPost._id,
+                post: thirdPost._id,
                 text: 'Комментарий 2 третьего поста'
             })
             firstPostCommentTwo.save(function (err) {
