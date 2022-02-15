@@ -21,6 +21,10 @@ const Post = ({nickName, avatar, post, comments, idPost, idUser}) => {
         setCommentsShow(true)
     }
 
+    const handleDoubleClick = () => {
+        console.log('sad')
+    }
+
     return (
         <div className="post">
             <div className="post__header">
@@ -41,13 +45,14 @@ const Post = ({nickName, avatar, post, comments, idPost, idUser}) => {
                 </div>
             </div>
             <div className="post-content">
-                <div className="post-content_block" style={{backgroundImage: `url(${post})`}}/>
+                <div className="post-content_block" style={{backgroundImage: `url(${post})`}} onDoubleClick={handleDoubleClick}/>
             </div>
             <div className="footer">
                 <div className="footer__communication">
                     <div>
-                        <button className="footer__communication-button">
-                            <IconFavorite className="footer-icon"/></button>
+                        <button className="footer__communication-button" >
+                            <IconFavorite className="footer-icon"/>
+                        </button>
                         <button className="footer__communication-button">
                             <IconMessagePost className="footer-icon"/>
                         </button>
@@ -56,7 +61,7 @@ const Post = ({nickName, avatar, post, comments, idPost, idUser}) => {
                         </button>
                     </div>
                     <div>
-                        <button className="footer__communication-button">
+                        <button className="footer__communication-button" >
                             <IconSave className="footer-icon"/>
                         </button>
                     </div>
