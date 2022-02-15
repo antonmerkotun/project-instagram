@@ -9,6 +9,7 @@ import IconFavorite from "../Icon/IconFavorite/IconFavorite";
 import IconMessagePost from "../Icon/IconMessagePost/IconMessagePost";
 import IconShare from "../Icon/IconShare/IconShare";
 import IconSave from "../Icon/IconSave/IconSave";
+import Input from "../Input/Input";
 
 
 const Post = ({nickName, avatar, post, comments, idPost, idUser}) => {
@@ -61,7 +62,7 @@ const Post = ({nickName, avatar, post, comments, idPost, idUser}) => {
                     </div>
                 </div>
                 <div className="footer-favorite">
-                    {idPost} отметок "Нравится"
+                    ({idPost}) --- отметок "Нравится"
                 </div>
                 <div className="footer-comment">
                     <div className="footer-comment-all">
@@ -81,10 +82,7 @@ const Post = ({nickName, avatar, post, comments, idPost, idUser}) => {
                         Посмотреть все комментарии {comments.length}
                     </button> : ''}
                 </div>
-                <div className="footer-comment-add">
-                    <input className="footer-comment-add-input" type="text" placeholder="Добавьте комментарий"/>
-                    <button className="footer-comment-add-button">Опубликовать</button>
-                </div>
+                <Input idUser={idUser} idPost={idPost}/>
             </div>
         </div>
     );
