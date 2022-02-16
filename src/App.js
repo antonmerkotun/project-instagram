@@ -20,7 +20,6 @@ import {getCommentsAction} from "./redux/ajax/comments/getComments/getCommentsAc
 function App() {
     const dispatch = useDispatch()
     const accountData = useSelector(state => state.accountData)
-    // const usersData = useSelector(state => state.getUsers)
     const subscriptionsTrue = useSelector(state => state.subscriptionsTrue)
     const subscriptionsFalse = useSelector(state => state.subscriptionsFalse)
     const postsData = useSelector(state => state.getPosts)
@@ -50,7 +49,10 @@ function App() {
                                   postsData={postsData}
                                   commentsData={commentsData}/>}/>
                         <Route exact path="/user" element={<User/>}/>
-                        <Route exact path="/notfound" element={<NotFound/>}/>
+                        <Route exact path="/message" element={<NotFound titlePage={"message"}/>}/>
+                        <Route exact path="/newpost" element={<NotFound titlePage={"newpost"}/>}/>
+                        <Route exact path="/compass" element={<NotFound titlePage={"compass"}/>}/>
+                        <Route exact path="/favorite" element={<NotFound titlePage={"favorite"}/>}/>
                     </Routes>
                 </div>
             </div>

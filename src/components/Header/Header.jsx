@@ -34,22 +34,22 @@ function Header({account}) {
                         </Link>
                     </div>
                     <div className="header__nav-icon">
-                        <Link className="link" to="/notfound">
+                        <Link className="link" to="/message">
                             <IconMessage/>
                         </Link>
                     </div>
                     <div className="header__nav-icon">
-                        <Link className="link" to="/notfound">
+                        <Link className="link" to="/newpost">
                             <IconNewPost/>
                         </Link>
                     </div>
                     <div className="header__nav-icon">
-                        <Link className="link" to="/notfound">
+                        <Link className="link" to="/compass">
                             <IconCompass/>
                         </Link>
                     </div>
                     <div className="header__nav-icon">
-                        <Link className="link" to="/notfound">
+                        <Link className="link" to="/favorite">
                             <IconFavorite/>
                         </Link>
                     </div>
