@@ -9,8 +9,12 @@ const Input = ({idUser, idPost}) => {
 
 
     const addComment = (e) => {
-        dispatch(postCommentsAction(idUser, idPost, value))
-        // e.preventDefault()
+        e.preventDefault()
+        if (value === '') {
+            console.log("Введите комментарий")
+        } else {
+            dispatch(postCommentsAction(idUser, idPost, value))
+        }
         setValue('')
     }
 

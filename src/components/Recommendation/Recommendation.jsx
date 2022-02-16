@@ -5,7 +5,6 @@ import "./Recommendation.scss"
 
 //components
 import UserAvatar from "../UserAvatar/UserAvatar";
-import Loading from "../Loading/Loading";
 import UsersList from "../usersList/UsersList";
 
 

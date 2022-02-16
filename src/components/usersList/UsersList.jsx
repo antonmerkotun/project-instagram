@@ -1,35 +1,20 @@
-import React, {useEffect} from 'react';
-import Loading from "../Loading/Loading";
+import React from 'react';
 import UserAvatar from "../UserAvatar/UserAvatar";
+import {setSubscriptionsAction} from "../../redux/ajax/subscriptions/setSubscriptions/setSubscriptionsAction";
+import {useDispatch} from "react-redux";
 
 function UsersList({users, button}) {
+    const dispatch = useDispatch()
 
-
-    const setSubscriptions = (e) => {
+    const setSubscription = (e) => {
         e.target.innerText = ''
         users.forEach(user => {
             if (user._id === e.target.id) {
                 if (button === "sav") {
-                    fetch(`/users/sub/set/${user._id}`, {
-                        method: "POST",
-                        headers: {
-                            'Content-Type': 'application/json;charset=utf-8'
-                        },
-                        body: JSON.stringify({
-                            "subscriptions": true
-                        })
-                    })
+                    dispatch(setSubscriptionsAction(user._id, true))
                 }
                 if (button === "del") {
-                    fetch(`/users/sub/set/${user._id}`, {
-                        method: "POST",
-                        headers: {
-                            'Content-Type': 'application/json;charset=utf-8'
-                        },
-                        body: JSON.stringify({
-                            "subscriptions": false
-                        })
-                    })
+                    dispatch(setSubscriptionsAction(user._id, false))
                 }
             }
         })
@@ -49,7 +34,7 @@ function UsersList({users, button}) {
                     </div>
                     <div>
                         <button id={user._id} className="recommendation-list-user-button"
-                                onClick={setSubscriptions}>{button === "sav" ? "Подписаться" : "Отписаться"}
+                                onClick={setSubscription}>{button === "sav" ? "Подписаться" : "Отписаться"}
                         </button>
                     </div>
                 </div>
