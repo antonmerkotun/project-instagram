@@ -54,7 +54,7 @@ function Header({account}) {
                         </Link>
                     </div>
                     <div className="header__nav-icon">
-                        <Link className="link" to="/user">
+                        <Link className="link" to={`/account`}>
                             <UserAvatar
                                 avatar={account.avatar}/>
                         </Link>

@@ -13,6 +13,7 @@ import Input from "../Input/Input";
 import IconFavoriteTrue from "../Icon/IconFavorite/IconFavoriteTrue";
 import {useDispatch, useSelector} from "react-redux";
 import {setFavoriteAction} from "../../redux/ajax/posts/setFavorite/setFavoriteAction";
+import {Link} from "react-router-dom";
 
 
 const Post = ({nickName, avatar, post, comments, idPost, idUser, fav}) => {
@@ -42,10 +43,14 @@ const Post = ({nickName, avatar, post, comments, idPost, idUser, fav}) => {
             <div className="post__header">
                 <div className="post__header-user ">
                     <div className="post__header-avatar">
+                        <Link className="link" to={`/user/${idUser}`}>
                         <UserAvatar avatar={avatar}/>
+                        </Link>
                     </div>
                     <div>
+                        <Link className="link" to={`/user/${idUser}`}>
                         <p className="post__header-name">{nickName}</p>
+                        </Link>
                     </div>
                 </div>
                 <div className="post__header-user__burger">

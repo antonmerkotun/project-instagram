@@ -7,7 +7,7 @@ import User from "./pages/User/User";
 import NotFound from "./pages/NotFound/NotFound";
 import {useDispatch, useSelector} from "react-redux";
 import {getAccount} from "./redux/ajax/account/getAccountAction";
-import {getUsers} from "./redux/ajax/users/getUsersAction";
+import {getUsers} from "./redux/ajax/users/users/getUsersAction";
 import {
     getSubscriptionsTrueAction
 } from "./redux/ajax/subscriptions/getSubscriptions/SubscriptionsTrue/getSubscriptionsTrueAction";
@@ -16,6 +16,7 @@ import {
 } from "./redux/ajax/subscriptions/getSubscriptions/SubscriptionsFalse/getSubscriptionsFalseAction";
 import {getPostsAction} from "./redux/ajax/posts/getPosts/getPostsAction";
 import {getCommentsAction} from "./redux/ajax/comments/getComments/getCommentsAction";
+import {getUserIdAction} from "./redux/ajax/users/userId/getUsersIdAction";
 
 function App() {
     const dispatch = useDispatch()
@@ -24,7 +25,7 @@ function App() {
     const subscriptionsFalse = useSelector(state => state.subscriptionsFalse)
     const postsData = useSelector(state => state.getPosts)
     const commentsData = useSelector(state => state.getComments)
-
+    const userData = useSelector(state => state.getUser)
 
     useEffect(() => {
         dispatch(getAccount())
@@ -39,7 +40,7 @@ function App() {
     return (
         <BrowserRouter>
             <div className="container">
-                <Header account={accountData.account}/>
+                <Header account={accountData.data}/>
                 <div className="scroll-block">
                     <Routes>
                         <Route exact path="/" element={
@@ -48,7 +49,8 @@ function App() {
                                   subscriptionsTrue={subscriptionsTrue}
                                   postsData={postsData}
                                   commentsData={commentsData}/>}/>
-                        <Route exact path="/user/:id" element={<User/>}/>
+                        <Route exact path="/user/:id" element={<User userData={userData}/>}/>
+                        <Route exact path="/account" element={<User userData={accountData}/>}/>
                         <Route exact path="/message" element={<NotFound titlePage={"message"}/>}/>
                         <Route exact path="/newpost" element={<NotFound titlePage={"newpost"}/>}/>
                         <Route exact path="/compass" element={<NotFound titlePage={"compass"}/>}/>

@@ -31,8 +31,8 @@ client.connect(err => {
     })
     app.get('/user/:id', async function (req, res) {
         const id = req.params.id
-        const users = await usersCollections.find({_id: ObjectId(id)}).toArray();
-        res.send(users);
+        const user = await usersCollections.find({_id: ObjectId(id)}).toArray();
+        res.send(user);
     })
 
     app.get('/users/sub/true', async function (req, res) {
@@ -98,7 +98,6 @@ client.connect(err => {
         const userData = req.body
         const id = req.params.id
         const post = await postsCollections.updateOne({_id: ObjectId(id)}, {$set: userData});
-        console.log(userData)
         res.sendStatus(200);
     })
 

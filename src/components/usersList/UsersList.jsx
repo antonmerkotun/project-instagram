@@ -9,6 +9,7 @@ import {
     getSubscriptionsFalseAction
 } from "../../redux/ajax/subscriptions/getSubscriptions/SubscriptionsFalse/getSubscriptionsFalseAction";
 import {getPostsAction} from "../../redux/ajax/posts/getPosts/getPostsAction";
+import {Link} from "react-router-dom";
 
 function UsersList({users, button}) {
     const dispatch = useDispatch()
@@ -33,16 +34,21 @@ function UsersList({users, button}) {
         })
     }
 
+
     return (
         <div className="recommendation-list">
             {users.map((user) => (
                 <div className="recommendation-list-block" key={user._id}>
                     <div className="recommendation-list-user">
                         <div className="recommendation-list-user-avatar">
-                            <UserAvatar avatar={user.avatar} user={user}/>
+                            <Link to={`/user/${user._id}`}>
+                                <UserAvatar avatar={user.avatar} user={user}/>
+                            </Link>
                         </div>
                         <div className="recommendation-list-user-nickName">
-                            <p className="recommendation-list-user-nickName-text">{user.name.nickName}</p>
+                            <Link to={`/user/${user._id}`} className="link">
+                                <p className="recommendation-list-user-nickName-text">{user.name.nickName}</p>
+                            </Link>
                         </div>
                     </div>
                     <div>

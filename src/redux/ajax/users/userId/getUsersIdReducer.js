@@ -1,26 +1,26 @@
-import {GET_USERS_STARTED, GET_USERS_SUCCESS, GET_USERS_FAILURE} from "../../types";
+import {GET_USER_ID_STARTED, GET_USER_ID_SUCCESS, GET_USER_ID_FAILURE} from "../../../types";
 
 const initialState = {
     loading: false,
-    users: [],
+    data: [],
     error: null
 };
 
-export  function usersReducer(state = initialState, action) {
+export function getUserIdReducer(state = initialState, action) {
     switch (action.type) {
-        case GET_USERS_STARTED:
+        case GET_USER_ID_STARTED:
             return {
                 ...state,
                 loading: true
             };
-        case GET_USERS_SUCCESS:
+        case GET_USER_ID_SUCCESS:
             return {
                 ...state,
                 loading: false,
-                users: [...action.payload],
+                data: {...action.payload[0]},
                 error: null
             };
-        case GET_USERS_FAILURE:
+        case GET_USER_ID_FAILURE:
             return {
                 ...state,
                 loading: false,

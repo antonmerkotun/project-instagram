@@ -1,27 +1,26 @@
-import {GET_ACCOUNT_STARTED, GET_ACCOUNT_SUCCESS, GET_ACCOUNT_FAILURE} from "../../types";
-
+import {GET_USERS_STARTED, GET_USERS_SUCCESS, GET_USERS_FAILURE} from "../../../types";
 
 const initialState = {
-    loading: true,
-    data: {},
+    loading: false,
+    users: [],
     error: null
 };
 
-export  function accountReducer(state = initialState, action) {
+export  function usersReducer(state = initialState, action) {
     switch (action.type) {
-        case GET_ACCOUNT_STARTED:
+        case GET_USERS_STARTED:
             return {
                 ...state,
                 loading: true
             };
-        case GET_ACCOUNT_SUCCESS:
+        case GET_USERS_SUCCESS:
             return {
                 ...state,
                 loading: false,
-                data: {...action.payload[0]},
+                users: [...action.payload],
                 error: null
             };
-        case GET_ACCOUNT_FAILURE:
+        case GET_USERS_FAILURE:
             return {
                 ...state,
                 loading: false,
