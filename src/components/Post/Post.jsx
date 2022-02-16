@@ -11,7 +11,7 @@ import IconShare from "../Icon/IconShare/IconShare";
 import IconSave from "../Icon/IconSave/IconSave";
 import Input from "../Input/Input";
 import IconFavoriteTrue from "../Icon/IconFavorite/IconFavoriteTrue";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {setFavoriteAction} from "../../redux/ajax/posts/setFavorite/setFavoriteAction";
 
 
@@ -64,7 +64,8 @@ const Post = ({nickName, avatar, post, comments, idPost, idUser, fav}) => {
                 <div className="footer__communication">
                     <div>
                         <button className="footer__communication-button">
-                            {favorite === false ? <IconFavorite setFavorite={handleDoubleClick}/> : <IconFavoriteTrue handelDeleteFavorite={handelDeleteFavorite}/>}
+                            {favorite === false ? <IconFavorite setFavorite={handleDoubleClick}/> :
+                                <IconFavoriteTrue handelDeleteFavorite={handelDeleteFavorite}/>}
                         </button>
                         <button className="footer__communication-button">
                             <IconMessagePost className="footer-icon"/>
@@ -99,7 +100,7 @@ const Post = ({nickName, avatar, post, comments, idPost, idUser, fav}) => {
                         Посмотреть все комментарии {comments.length}
                     </button> : ''}
                 </div>
-                <Input idUser={idUser} idPost={idPost}/>
+                <Input idUser={idUser} idPost={idPost} comments={comments}/>
             </div>
         </div>
     );

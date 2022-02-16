@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {postCommentsAction} from "../../redux/ajax/comments/postComments/postCommentsAction";
+import {getCommentsAction} from "../../redux/ajax/comments/getComments/getCommentsAction";
 
 
-const Input = ({idUser, idPost}) => {
+const Input = ({idUser, idPost, comments}) => {
     const [value, setValue] = useState('')
     const dispatch = useDispatch()
-
+    const commentsData = useSelector(state => state.getComments)
 
     const addComment = (e) => {
         e.preventDefault()
@@ -14,6 +15,7 @@ const Input = ({idUser, idPost}) => {
             console.log("Введите комментарий")
         } else {
             dispatch(postCommentsAction(idUser, idPost, value))
+            dispatch(getCommentsAction())
         }
         setValue('')
     }

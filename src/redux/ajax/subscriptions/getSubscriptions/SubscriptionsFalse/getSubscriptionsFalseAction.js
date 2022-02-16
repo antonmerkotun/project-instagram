@@ -3,12 +3,10 @@ import {GET_SUBSCRIPTIONS_FALSE_STARTED, GET_SUBSCRIPTIONS_FALSE_SUCCESS, GET_SU
 export const getSubscriptionsFalseAction = () => {
     return async dispatch => {
         dispatch(getSubscriptionsFalseStarted())
-        // setTimeout(() => {
             fetch("/users/sub/false")
                 .then(res => res.json())
                 .then(res => dispatch(getSubscriptionsFalseSuccess(res)))
                 .catch(err => dispatch(getSubscriptionsFalseFailure(err.message)))
-        // }, 200)
     }
 }
 

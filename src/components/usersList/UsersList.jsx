@@ -2,6 +2,13 @@ import React from 'react';
 import UserAvatar from "../UserAvatar/UserAvatar";
 import {setSubscriptionsAction} from "../../redux/ajax/subscriptions/setSubscriptions/setSubscriptionsAction";
 import {useDispatch} from "react-redux";
+import {
+    getSubscriptionsTrueAction
+} from "../../redux/ajax/subscriptions/getSubscriptions/SubscriptionsTrue/getSubscriptionsTrueAction";
+import {
+    getSubscriptionsFalseAction
+} from "../../redux/ajax/subscriptions/getSubscriptions/SubscriptionsFalse/getSubscriptionsFalseAction";
+import {getPostsAction} from "../../redux/ajax/posts/getPosts/getPostsAction";
 
 function UsersList({users, button}) {
     const dispatch = useDispatch()
@@ -12,9 +19,15 @@ function UsersList({users, button}) {
             if (user._id === e.target.id) {
                 if (button === "sav") {
                     dispatch(setSubscriptionsAction(user._id, true))
+                    dispatch(getSubscriptionsTrueAction())
+                    dispatch(getSubscriptionsFalseAction())
+                    dispatch(getPostsAction())
                 }
                 if (button === "del") {
                     dispatch(setSubscriptionsAction(user._id, false))
+                    dispatch(getSubscriptionsTrueAction())
+                    dispatch(getSubscriptionsFalseAction())
+                    dispatch(getPostsAction())
                 }
             }
         })
