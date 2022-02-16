@@ -93,6 +93,16 @@ client.connect(err => {
         res.sendStatus(200);
     })
 
+//Favorite
+    app.post('/users/fav/set/:id', async function (req, res) {
+        const userData = req.body
+        const id = req.params.id
+        const post = await postsCollections.updateOne({_id: ObjectId(id)}, {$set: userData});
+        console.log(userData)
+        res.sendStatus(200);
+    })
+
+
 //
 //
 //

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 
 //style
 import "./Post.scss"
@@ -10,11 +10,16 @@ import IconMessagePost from "../Icon/IconMessagePost/IconMessagePost";
 import IconShare from "../Icon/IconShare/IconShare";
 import IconSave from "../Icon/IconSave/IconSave";
 import Input from "../Input/Input";
+import IconFavoriteTrue from "../Icon/IconFavorite/IconFavoriteTrue";
+import {useDispatch} from "react-redux";
+import {setFavoriteAction} from "../../redux/ajax/posts/setFavorite/setFavoriteAction";
 
 
-const Post = ({nickName, avatar, post, comments, idPost, idUser}) => {
-
+const Post = ({nickName, avatar, post, comments, idPost, idUser, fav}) => {
+    const dispatch = useDispatch()
     const [commentsShow, setCommentsShow] = useState(false)
+    const [favorite, setFavorite] = useState(fav)
+
     let lastComments = comments[comments.length - 1] || {text: "нету комментариев"}
 
     const openCommentsAll = () => {
@@ -22,7 +27,14 @@ const Post = ({nickName, avatar, post, comments, idPost, idUser}) => {
     }
 
     const handleDoubleClick = () => {
-        console.log('sad')
+        setFavorite(true)
+        dispatch(setFavoriteAction(idPost, true))
+    }
+
+
+    const handelDeleteFavorite = () => {
+        setFavorite(false)
+        dispatch(setFavoriteAction(idPost, false))
     }
 
     return (
@@ -45,13 +57,14 @@ const Post = ({nickName, avatar, post, comments, idPost, idUser}) => {
                 </div>
             </div>
             <div className="post-content">
-                <div className="post-content_block" style={{backgroundImage: `url(${post})`}} onDoubleClick={handleDoubleClick}/>
+                <div className="post-content_block" style={{backgroundImage: `url(${post})`}}
+                     onDoubleClick={handleDoubleClick}/>
             </div>
             <div className="footer">
                 <div className="footer__communication">
                     <div>
-                        <button className="footer__communication-button" >
-                            <IconFavorite className="footer-icon"/>
+                        <button className="footer__communication-button">
+                            {favorite === false ? <IconFavorite setFavorite={handleDoubleClick}/> : <IconFavoriteTrue handelDeleteFavorite={handelDeleteFavorite}/>}
                         </button>
                         <button className="footer__communication-button">
                             <IconMessagePost className="footer-icon"/>
@@ -61,13 +74,12 @@ const Post = ({nickName, avatar, post, comments, idPost, idUser}) => {
                         </button>
                     </div>
                     <div>
-                        <button className="footer__communication-button" >
+                        <button className="footer__communication-button">
                             <IconSave className="footer-icon"/>
                         </button>
                     </div>
                 </div>
                 <div className="footer-favorite">
-                    {/*отметок "Нравится"*/}
                 </div>
                 <div className="footer-comment">
                     <div className="footer-comment-all">

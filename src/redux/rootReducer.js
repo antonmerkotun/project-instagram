@@ -11,6 +11,7 @@ import {getPostsReducer} from "./ajax/posts/getPosts/getPostsReducer";
 import {getCommentsReducer} from "./ajax/comments/getComments/getCommentsReducer";
 import {postCommentsReducer} from "./ajax/comments/postComments/postCommentsReducer";
 import {setSubscriptionsReducer} from "./ajax/subscriptions/setSubscriptions/setSubscriptionsReducer";
+import {setFavoriteReducer} from "./ajax/posts/setFavorite/setFavoriteReducer";
 
 export const rootReducer = combineReducers({
     getUsers: usersReducer,
@@ -20,5 +21,6 @@ export const rootReducer = combineReducers({
     getPosts: getPostsReducer,
     getComments: getCommentsReducer,
     postComment: postCommentsReducer,
-    setSubscriptions: setSubscriptionsReducer
+    setSubscriptions: setSubscriptionsReducer,
+    setFavorite: setFavoriteReducer,
 })

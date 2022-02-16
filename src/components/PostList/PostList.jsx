@@ -24,6 +24,7 @@ const PostList = ({usersData, postsData, commentsData}) => {
                                 nickName={users.name.nickName}
                                 avatar={users.avatar}
                                 post={posts.image}
+                                fav={posts.favorite}
                                 comments={commentsData.data.filter(comments => posts._id === comments.post)}
                             />
                         </li>
