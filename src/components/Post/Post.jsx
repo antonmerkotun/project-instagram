@@ -14,6 +14,7 @@ import IconFavoriteTrue from "../Icon/IconFavorite/IconFavoriteTrue";
 import {useDispatch} from "react-redux";
 import {setFavoriteAction} from "../../redux/ajax/posts/setFavorite/setFavoriteAction";
 import {Link} from "react-router-dom";
+import {getPostsAction} from "../../redux/ajax/posts/getPosts/getPostsAction";
 
 
 const Post = ({nickName, avatar, post, comments, idPost, idUser, fav}) => {
@@ -30,12 +31,14 @@ const Post = ({nickName, avatar, post, comments, idPost, idUser, fav}) => {
     const handleDoubleClick = () => {
         setFavorite(true)
         dispatch(setFavoriteAction(idPost, true))
+        dispatch(getPostsAction())
     }
 
 
     const handelDeleteFavorite = () => {
         setFavorite(false)
         dispatch(setFavoriteAction(idPost, false))
+        dispatch(getPostsAction())
     }
 
     return (

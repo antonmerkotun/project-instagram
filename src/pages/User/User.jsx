@@ -9,6 +9,7 @@ import {getUserIdAction} from "../../redux/ajax/users/userId/getUsersIdAction";
 
 
 const User = ({userData}) => {
+    window.scrollTo(0, 0)
     const dispatch = useDispatch()
     const pathname = document.location.pathname
     const idUser = pathname.split("/")
