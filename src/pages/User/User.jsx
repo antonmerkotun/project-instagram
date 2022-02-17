@@ -21,14 +21,12 @@ const User = ({userData}) => {
 
     return (
         <>
-            {userData.data.account && <p>ssss</p>}
             {userData.loading === false &&
                 <>
                     <div className="page-user">
-                        <HeaderUserPage/>
+                        <HeaderUserPage user={userData.data}/>
                         {name.nickName}
                         <div className="image-block">
-                            <div className="image" style={{backgroundImage: `url(${avatar})`}}/>
                         </div>
                     </div>
                 </>
