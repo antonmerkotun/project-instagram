@@ -1,14 +1,14 @@
 import React from 'react';
 import "./HeaderUserPage.scss"
-import UserAvatar from "../../UserAvatar/UserAvatar";
+import UserAvatar from "../UserAvatar/UserAvatar";
 import {useDispatch} from "react-redux";
-import {setSubscriptionsAction} from "../../../redux/ajax/subscriptions/setSubscriptions/setSubscriptionsAction";
+import {setSubscriptionsAction} from "../../redux/ajax/subscriptions/setSubscriptions/setSubscriptionsAction";
 import {
     getSubscriptionsTrueAction
-} from "../../../redux/ajax/subscriptions/getSubscriptions/SubscriptionsTrue/getSubscriptionsTrueAction";
+} from "../../redux/ajax/subscriptions/getSubscriptions/SubscriptionsTrue/getSubscriptionsTrueAction";
 import {
     getSubscriptionsFalseAction
-} from "../../../redux/ajax/subscriptions/getSubscriptions/SubscriptionsFalse/getSubscriptionsFalseAction";
+} from "../../redux/ajax/subscriptions/getSubscriptions/SubscriptionsFalse/getSubscriptionsFalseAction";
 
 const HeaderUserPage = ({user, posts}) => {
     const dispatch = useDispatch()

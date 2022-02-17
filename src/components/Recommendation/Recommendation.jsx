@@ -5,7 +5,7 @@ import "./Recommendation.scss"
 
 //components
 import UserAvatar from "../UserAvatar/UserAvatar";
-import UsersList from "../usersList/UsersList";
+import UsersList from "../UsersList/UsersList";
 import {Link} from "react-router-dom";
 
 

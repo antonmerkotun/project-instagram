@@ -4,8 +4,9 @@ import React, {useEffect} from 'react';
 //style
 import "./User.scss"
 import {useDispatch, useSelector} from "react-redux";
-import HeaderUserPage from "../../components/Header/HeaderUsersPage/HeaderUserPage";
+import HeaderUserPage from "../../components/HeaderUsersPage/HeaderUserPage";
 import {getUserIdAction} from "../../redux/ajax/users/userId/getUsersIdAction";
+import PostColumn from "../../components/PostColumn/PostColumn";
 
 
 const User = ({userData}) => {
@@ -23,8 +24,10 @@ const User = ({userData}) => {
 
     return (
         <div className="page-user">
-            {userData.loading === false &&
+            {userData.loading === false && <>
                 <HeaderUserPage user={userData.data} posts={posts}/>
+                <PostColumn posts={posts}/>
+            </>
             }
         </div>
     )
