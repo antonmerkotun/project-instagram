@@ -50,7 +50,6 @@ function App() {
                                   postsData={postsData}
                                   commentsData={commentsData}/>}/>
                         <Route exact path="/user/:id" element={<User userData={userData}/>}/>
-                        <Route exact path="/account" element={<User userData={accountData}/>}/>
                         <Route exact path="/message" element={<NotFound titlePage={"message"}/>}/>
                         <Route exact path="/newpost" element={<NotFound titlePage={"newpost"}/>}/>
                         <Route exact path="/compass" element={<NotFound titlePage={"compass"}/>}/>

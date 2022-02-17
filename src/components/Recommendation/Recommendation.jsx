@@ -16,12 +16,12 @@ const Recommendation = ({accountData, subscriptions, recommendations}) => {
                 <div className='recommendation' key={accountData.data._id}>
                     <div className="recommendation__user-info">
                         <div className="recommendation__user-avatar">
-                            <Link className="link" to={`/account`}>
+                            <Link className="link" to={`/user/${accountData.data._id}`}>
                                 <UserAvatar avatar={accountData.data.avatar}/>
                             </Link>
                         </div>
                         <div className="recommendation__user-name">
-                            <Link className="link" to={`/account`}>
+                            <Link className="link" to={`/user/${accountData.data._id}`}>
                                 <div
                                     className="recommendation__user-nickName">{accountData.data.name.nickName}</div>
                                 <div

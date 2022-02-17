@@ -12,10 +12,12 @@ import IconMessage from "../Icon/IconMessage/IconMessage";
 import IconNewPost from "../Icon/IconNewPost/IconNewPost";
 import IconCompass from "../Icon/IconCompass/IconCompass";
 import IconFavorite from "../Icon/IconFavorite/IconFavorite";
+import {getUserIdAction} from "../../redux/ajax/users/userId/getUsersIdAction";
+import {useDispatch} from "react-redux";
 
 
 function Header({account}) {
-
+    const dispatch = useDispatch()
     return (
         <div className="header">
             <div className="header__container">
@@ -53,8 +55,8 @@ function Header({account}) {
                             <IconFavorite/>
                         </Link>
                     </div>
-                    <div className="header__nav-icon">
-                        <Link className="link" to={`/account`}>
+                    <div className="header__nav-icon" onClick={() => {dispatch(getUserIdAction(account._id))}}>
+                        <Link className="link" to={`/user/${account._id}`}>
                             <UserAvatar
                                 avatar={account.avatar}/>
                         </Link>
