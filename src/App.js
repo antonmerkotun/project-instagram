@@ -16,7 +16,6 @@ import {
 } from "./redux/ajax/subscriptions/getSubscriptions/SubscriptionsFalse/getSubscriptionsFalseAction";
 import {getPostsAction} from "./redux/ajax/posts/getPosts/getPostsAction";
 import {getCommentsAction} from "./redux/ajax/comments/getComments/getCommentsAction";
-import {getUserIdAction} from "./redux/ajax/users/userId/getUsersIdAction";
 
 function App() {
     const dispatch = useDispatch()
@@ -29,11 +28,11 @@ function App() {
 
     useEffect(() => {
         dispatch(getAccount())
-        dispatch(getUsers())
         dispatch(getSubscriptionsTrueAction())
         dispatch(getSubscriptionsFalseAction())
         dispatch(getPostsAction())
         dispatch(getCommentsAction())
+        dispatch(getUsers())
     }, []);
 
 

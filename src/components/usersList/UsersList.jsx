@@ -6,24 +6,33 @@ import {Link} from "react-router-dom";
 //
 import UserAvatar from "../UserAvatar/UserAvatar";
 import {getUserIdAction} from "../../redux/ajax/users/userId/getUsersIdAction";
-import SubscriptionButton from "../SubscriptionButton/SubscriptionButton";
+import {
+    getSubscriptionsTrueAction
+} from "../../redux/ajax/subscriptions/getSubscriptions/SubscriptionsTrue/getSubscriptionsTrueAction";
+import {
+    getSubscriptionsFalseAction
+} from "../../redux/ajax/subscriptions/getSubscriptions/SubscriptionsFalse/getSubscriptionsFalseAction";
 
 function UsersList({users, button}) {
     const dispatch = useDispatch()
-    //
-    // const setSubscription = (e) => {
-    //     e.target.innerText = ''
-    //     users.forEach(user => {
-    //         if (user._id === e.target.id) {
-    //             if (button === "sav") {
-    //                 dispatch(setSubscriptionsAction(user._id, true))
-    //             }
-    //             if (button === "del") {
-    //                 dispatch(setSubscriptionsAction(user._id, false))
-    //             }
-    //         }
-    //     })
-    // }
+
+    const setSubscription = (e) => {
+        e.target.innerText = ''
+        users.forEach(user => {
+            if (user._id === e.target.id) {
+                if (button === "sav") {
+                    dispatch(setSubscriptionsAction(user._id, true))
+                    dispatch(getSubscriptionsTrueAction())
+                    dispatch(getSubscriptionsFalseAction())
+                }
+                if (button === "del") {
+                    dispatch(setSubscriptionsAction(user._id, false))
+                    dispatch(getSubscriptionsTrueAction())
+                    dispatch(getSubscriptionsFalseAction())
+                }
+            }
+        })
+    }
 
 
     return (
@@ -43,10 +52,9 @@ function UsersList({users, button}) {
                         </div>
                     </div>
                     <div>
-                        {/*<button id={user._id} className="recommendation-list-user-button"*/}
-                        {/*        onClick={setSubscription}>{button === "sav" ? "Подписаться" : "Отписаться"}*/}
-                        {/*</button>*/}
-                        <SubscriptionButton id={user._id} users={users} button={button}/>
+                        <button id={user._id} className="recommendation-list-user-button"
+                                onClick={setSubscription}>{button === "sav" ? "Подписаться" : "Отписаться"}
+                        </button>
                     </div>
                 </div>
             ))}

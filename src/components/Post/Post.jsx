@@ -11,7 +11,7 @@ import IconShare from "../Icon/IconShare/IconShare";
 import IconSave from "../Icon/IconSave/IconSave";
 import Input from "../Input/Input";
 import IconFavoriteTrue from "../Icon/IconFavorite/IconFavoriteTrue";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {setFavoriteAction} from "../../redux/ajax/posts/setFavorite/setFavoriteAction";
 import {Link} from "react-router-dom";
 
