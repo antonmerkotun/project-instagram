@@ -14,15 +14,20 @@ client.connect(err => {
     const usersCollections = client.db("insta").collection("users");
     const postsCollections = client.db("insta").collection("posts");
     const commentsCollections = client.db("insta").collection("comments");
-    const accountCollections = client.db("instagram").collection("account");
+//    const accountCollections = client.db("instagram").collection("account");
 
 
 //GET
 //Account
+//     app.get('/account', async function (req, res) {
+//         const findResult = await accountCollections.find({}).toArray();
+//         res.send(findResult);
+//     })
     app.get('/account', async function (req, res) {
-        const findResult = await accountCollections.find({}).toArray();
+        const findResult = await usersCollections.find({account: true}).toArray();
         res.send(findResult);
     })
+
 
 //User
     app.get('/users', async function (req, res) {

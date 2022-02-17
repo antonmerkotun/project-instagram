@@ -1,15 +1,11 @@
 import React from 'react';
-import UserAvatar from "../UserAvatar/UserAvatar";
 import {setSubscriptionsAction} from "../../redux/ajax/subscriptions/setSubscriptions/setSubscriptionsAction";
 import {useDispatch} from "react-redux";
-import {
-    getSubscriptionsTrueAction
-} from "../../redux/ajax/subscriptions/getSubscriptions/SubscriptionsTrue/getSubscriptionsTrueAction";
-import {
-    getSubscriptionsFalseAction
-} from "../../redux/ajax/subscriptions/getSubscriptions/SubscriptionsFalse/getSubscriptionsFalseAction";
-import {getPostsAction} from "../../redux/ajax/posts/getPosts/getPostsAction";
 import {Link} from "react-router-dom";
+
+//
+import UserAvatar from "../UserAvatar/UserAvatar";
+import {getUserIdAction} from "../../redux/ajax/users/userId/getUsersIdAction";
 
 function UsersList({users, button}) {
     const dispatch = useDispatch()
@@ -20,15 +16,9 @@ function UsersList({users, button}) {
             if (user._id === e.target.id) {
                 if (button === "sav") {
                     dispatch(setSubscriptionsAction(user._id, true))
-                    dispatch(getSubscriptionsTrueAction())
-                    dispatch(getSubscriptionsFalseAction())
-                    dispatch(getPostsAction())
                 }
                 if (button === "del") {
                     dispatch(setSubscriptionsAction(user._id, false))
-                    dispatch(getSubscriptionsTrueAction())
-                    dispatch(getSubscriptionsFalseAction())
-                    dispatch(getPostsAction())
                 }
             }
         })
@@ -40,12 +30,12 @@ function UsersList({users, button}) {
             {users.map((user) => (
                 <div className="recommendation-list-block" key={user._id}>
                     <div className="recommendation-list-user">
-                        <div className="recommendation-list-user-avatar">
+                        <div className="recommendation-list-user-avatar" onClick={() => {dispatch(getUserIdAction(user._id))}}>
                             <Link to={`/user/${user._id}`}>
                                 <UserAvatar avatar={user.avatar} user={user}/>
                             </Link>
                         </div>
-                        <div className="recommendation-list-user-nickName">
+                        <div className="recommendation-list-user-nickName" onClick={() => {dispatch(getUserIdAction(user._id))}}>
                             <Link to={`/user/${user._id}`} className="link">
                                 <p className="recommendation-list-user-nickName-text">{user.name.nickName}</p>
                             </Link>

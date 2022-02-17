@@ -1,7 +1,7 @@
 import {GET_USER_ID_STARTED, GET_USER_ID_SUCCESS, GET_USER_ID_FAILURE} from "../../../types";
 
 const initialState = {
-    loading: false,
+    loading: true,
     data: [],
     error: null
 };

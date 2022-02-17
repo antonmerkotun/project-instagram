@@ -3,37 +3,41 @@ import React, {useEffect, useState} from 'react';
 
 //style
 import "./User.scss"
+import {useDispatch} from "react-redux";
+import HeaderUserPage from "../../components/Header/HeaderUsersPage/HeaderUserPage";
 import {getUserIdAction} from "../../redux/ajax/users/userId/getUsersIdAction";
-import {useDispatch, useSelector} from "react-redux";
 
 
 const User = ({userData}) => {
     const dispatch = useDispatch()
     const {name, avatar, posts} = userData.data
 
+    const pathname = document.location.pathname
+    const idUser = pathname.split("/")
+
     useEffect(() => {
-        dispatch(getUserIdAction(document.location.pathname))
+        dispatch(getUserIdAction(idUser[2]))
     }, [])
 
     return (
-        <div className="page-user">
-            {userData.data.name &&
+        <>
+            {userData.data.account && <p>ssss</p>}
+            {userData.loading === false &&
                 <>
-                    {name.nickName}
-                    <div className="image-block">
-                        <div className="image" style={{backgroundImage: `url(${avatar})`}}/>
+                    <div className="page-user">
+                        <HeaderUserPage/>
+                        {name.nickName}
+                        <div className="image-block">
+                            <div className="image" style={{backgroundImage: `url(${avatar})`}}/>
+                        </div>
                     </div>
-                </>}
-            {/*{users.map(user => (*/}
-            {/*    <div key={user._id}>*/}
-            {/*        <div>{user.name}</div>*/}
-            {/*        <div className="image-block">*/}
-            {/*        <div className="image" style={{backgroundImage: `url(${user.avatar})`}}/>*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*))}*/}
-        </div>
-    );
+                </>
+            }
+        </>
+
+
+    )
+        ;
 };
 
 export default User;
