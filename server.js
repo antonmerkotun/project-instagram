@@ -7,7 +7,7 @@ app.use(bodyParser.json());
 
 const url = "mongodb+srv://antonmerkotun:1996178dD@instagram.9subi.mongodb.net/insta?retryWrites=true&w=majority";
 const client = new MongoClient(url);
-const PORT = 3005
+const PORT = process.env.PORT || 3005
 
 client.connect(err => {
     const usersCollections = client.db("insta").collection("users");
