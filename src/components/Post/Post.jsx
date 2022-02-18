@@ -1,7 +1,11 @@
+//imports
 import React, {useState} from 'react';
+import PropTypes from "prop-types";
+import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
 
 //style
-import "./Post.scss"
+import "./Post.scss";
 
 //components
 import UserAvatar from "../UserAvatar/UserAvatar";
@@ -11,10 +15,9 @@ import IconShare from "../Icon/IconShare/IconShare";
 import IconSave from "../Icon/IconSave/IconSave";
 import Input from "../Input/Input";
 import IconFavoriteTrue from "../Icon/IconFavorite/IconFavoriteTrue";
-import {useDispatch} from "react-redux";
 import {setFavoriteAction} from "../../redux/ajax/posts/setFavorite/setFavoriteAction";
-import {Link} from "react-router-dom";
 import {getPostsAction} from "../../redux/ajax/posts/getPosts/getPostsAction";
+import PostList from "../PostList/PostList";
 
 
 const Post = ({nickName, avatar, post, comments, idPost, idUser, fav}) => {
@@ -113,5 +116,15 @@ const Post = ({nickName, avatar, post, comments, idPost, idUser, fav}) => {
         </div>
     );
 };
+
+Post.protoType = {
+    nickName: PropTypes.string,
+    avatar: PropTypes.string,
+    post: PropTypes.string,
+    comments: PropTypes.object,
+    idPost: PropTypes.string,
+    idUser: PropTypes.string,
+    fav: PropTypes.bool,
+}
 
 export default Post;

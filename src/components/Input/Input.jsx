@@ -1,7 +1,12 @@
+//imports
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
+import PropTypes from "prop-types";
+
+//components
 import {postCommentsAction} from "../../redux/ajax/comments/postComments/postCommentsAction";
 import {getCommentsAction} from "../../redux/ajax/comments/getComments/getCommentsAction";
+import Post from "../Post/Post";
 
 
 const Input = ({idUser, idPost, comments}) => {
@@ -28,5 +33,11 @@ const Input = ({idUser, idPost, comments}) => {
         </form>
     );
 };
+
+Input.protoType = {
+    idUser: PropTypes.string,
+    idPost: PropTypes.string,
+    comments: PropTypes.object,
+}
 
 export default Input;

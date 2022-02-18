@@ -1,9 +1,10 @@
+//imports
 import React from 'react';
 import {setSubscriptionsAction} from "../../redux/ajax/subscriptions/setSubscriptions/setSubscriptionsAction";
 import {useDispatch} from "react-redux";
 import {Link} from "react-router-dom";
 
-//
+//components
 import UserAvatar from "../UserAvatar/UserAvatar";
 import {getUserIdAction} from "../../redux/ajax/users/userId/getUsersIdAction";
 import {
@@ -12,6 +13,8 @@ import {
 import {
     getSubscriptionsFalseAction
 } from "../../redux/ajax/subscriptions/getSubscriptions/SubscriptionsFalse/getSubscriptionsFalseAction";
+import PropTypes from "prop-types";
+import Main from "../../pages/Main/Main";
 
 function UsersList({users, button}) {
     const dispatch = useDispatch()
@@ -60,6 +63,11 @@ function UsersList({users, button}) {
             ))}
         </div>
     );
+}
+
+UsersList.protoType = {
+    users: PropTypes.object,
+    button: PropTypes.string,
 }
 
 export default UsersList;

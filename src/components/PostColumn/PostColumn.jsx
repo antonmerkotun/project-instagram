@@ -1,7 +1,14 @@
+//import
 import React, {useState} from 'react';
-import "./PostColumn.scss"
-import Modal from "../Modal/Modal";
 import {useSelector} from "react-redux";
+
+//style
+import "./PostColumn.scss"
+
+//components
+import Modal from "../Modal/Modal";
+import PropTypes from "prop-types";
+import Main from "../../pages/Main/Main";
 
 
 function PostColumn({idUser, posts, comments}) {
@@ -47,9 +54,16 @@ function PostColumn({idUser, posts, comments}) {
                     </div>
                 })}
             </div>
-            {modal === true && <Modal handlerModal={handlerModal} post={post} comments={comments.filter(comment => comment.post === post._id)}/>}
+            {modal === true && <Modal handlerModal={handlerModal} post={post}
+                                      comments={comments.filter(comment => comment.post === post._id)}/>}
         </>
     );
+}
+
+PostColumn.protoType = {
+    idUser: PropTypes.string,
+    posts: PropTypes.object,
+    comments: PropTypes.object,
 }
 
 export default PostColumn;

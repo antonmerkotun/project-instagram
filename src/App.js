@@ -1,11 +1,16 @@
+//imports
+import React, {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+
+//style
 import './App.css';
+
+//components
 import Header from "./components/Header/Header";
 import Main from "./pages/Main/Main";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
-import React, {useEffect} from "react";
 import User from "./pages/User/User";
 import NotFound from "./pages/NotFound/NotFound";
-import {useDispatch, useSelector} from "react-redux";
 import {getAccount} from "./redux/ajax/account/getAccountAction";
 import {getUsers} from "./redux/ajax/users/users/getUsersAction";
 import {
@@ -16,6 +21,7 @@ import {
 } from "./redux/ajax/subscriptions/getSubscriptions/SubscriptionsFalse/getSubscriptionsFalseAction";
 import {getPostsAction} from "./redux/ajax/posts/getPosts/getPostsAction";
 import {getCommentsAction} from "./redux/ajax/comments/getComments/getCommentsAction";
+
 
 function App() {
     const dispatch = useDispatch()
@@ -34,7 +40,6 @@ function App() {
         dispatch(getCommentsAction())
         dispatch(getUsers())
     }, []);
-
 
     return (
         <BrowserRouter>

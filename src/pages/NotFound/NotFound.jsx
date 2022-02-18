@@ -1,4 +1,9 @@
+//imports
 import React from 'react';
+import PropTypes from "prop-types";
+import Main from "../Main/Main";
+
+//components
 import "./NotFound.scss"
 
 const NotFound = ({titlePage}) => {
@@ -8,5 +13,9 @@ const NotFound = ({titlePage}) => {
         </div>
     );
 };
+
+NotFound.protoType = {
+    titlePage: PropTypes.string,
+}
 
 export default NotFound;

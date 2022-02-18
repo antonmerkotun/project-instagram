@@ -1,12 +1,14 @@
-//import
+//imports
 import React from 'react';
+import PropTypes from "prop-types";
 
 //style
-import "./Main.scss"
+import "./Main.scss";
 
 //components
 import PostList from "../../components/PostList/PostList";
 import Recommendation from "../../components/Recommendation/Recommendation";
+import UserAvatar from "../../components/UserAvatar/UserAvatar";
 
 
 const Main = ({accountData, subscriptionsTrue, subscriptionsFalse, postsData, commentsData}) => {
@@ -25,5 +27,13 @@ const Main = ({accountData, subscriptionsTrue, subscriptionsFalse, postsData, co
         </div>
     );
 };
+
+Main.protoType = {
+    accountData: PropTypes.object,
+    subscriptionsTrue: PropTypes.object,
+    subscriptionsFalse: PropTypes.object,
+    postsData: PropTypes.object,
+    commentsData: PropTypes.object,
+}
 
 export default Main;

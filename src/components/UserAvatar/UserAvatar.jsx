@@ -1,16 +1,23 @@
+//imports
 import React from 'react';
+import {Link} from "react-router-dom";
+import PropTypes from "prop-types";
 
 //style
-import "./UserAvatar.scss"
-import {Link} from "react-router-dom";
+import "./UserAvatar.scss";
+
+//components
+import Header from "../Header/Header";
+
 
 const UserAvatar = ({avatar = ''}) => {
-
     return (
-        // <Link className="link" to="/user">
             <div className="user__avatar" style={{backgroundImage: `url(${avatar})`}}/>
-        // </Link>
     );
 };
+
+UserAvatar.protoType = {
+    avatar: PropTypes.string
+}
 
 export default UserAvatar;

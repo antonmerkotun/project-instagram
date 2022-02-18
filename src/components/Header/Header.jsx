@@ -1,9 +1,11 @@
+//imports
 import React from 'react';
 import {Link} from "react-router-dom";
-
+import {useDispatch} from "react-redux";
+import PropTypes from "prop-types";
 
 // style
-import "./Header.scss"
+import "./Header.scss";
 
 //components
 import UserAvatar from "../UserAvatar/UserAvatar";
@@ -13,7 +15,6 @@ import IconNewPost from "../Icon/IconNewPost/IconNewPost";
 import IconCompass from "../Icon/IconCompass/IconCompass";
 import IconFavorite from "../Icon/IconFavorite/IconFavorite";
 import {getUserIdAction} from "../../redux/ajax/users/userId/getUsersIdAction";
-import {useDispatch} from "react-redux";
 
 
 function Header({account}) {
@@ -65,6 +66,10 @@ function Header({account}) {
             </div>
         </div>
     );
+}
+
+Header.protoType = {
+    account: PropTypes.string
 }
 
 export default Header;

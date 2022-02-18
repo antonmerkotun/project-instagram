@@ -1,12 +1,18 @@
+//import
 import React from 'react';
+import PropTypes from "prop-types";
+
+//style
 import "./Modal.scss"
+
+//components
 import {useSelector} from "react-redux";
 import UserAvatar from "../UserAvatar/UserAvatar";
 import Input from "../Input/Input";
+import Main from "../../pages/Main/Main";
 
 function Modal({handlerModal, post, comments}) {
     const userData = useSelector(state => state.getUser)
-
 
     return (
         <div onClick={handlerModal}>
@@ -33,6 +39,12 @@ function Modal({handlerModal, post, comments}) {
             </div>
         </div>
     );
+}
+
+Modal.protoType = {
+    handlerModal: PropTypes.func,
+    post: PropTypes.object,
+    comments: PropTypes.object,
 }
 
 export default Modal;

@@ -1,16 +1,16 @@
 //import
 import React from 'react';
-
+import PropTypes from "prop-types";
 
 //style
-import "./PostList.scss"
+import "./PostList.scss";
 
 //components
 import Post from "../Post/Post";
+import Main from "../../pages/Main/Main";
 
 
 const PostList = ({usersData, postsData, commentsData}) => {
-
     return (
         <div className="post-list">
             {postsData.error === "Unexpected token P in JSON at position 0" && "Произошла ошибка! Проверьте подключение к базе данных MongoDB."}
@@ -34,5 +34,11 @@ const PostList = ({usersData, postsData, commentsData}) => {
         </div>
     );
 };
+
+PostList.protoType = {
+    usersData: PropTypes.object,
+    postsData: PropTypes.object,
+    commentsData: PropTypes.object,
+}
 
 export default PostList;

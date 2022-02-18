@@ -1,12 +1,15 @@
 import React, {useEffect, useState} from 'react';
-
+import PropTypes from "prop-types";
+import {useDispatch, useSelector} from "react-redux";
 
 //style
 import "./User.scss"
-import {useDispatch, useSelector} from "react-redux";
+
+//components
 import HeaderUserPage from "../../components/HeaderUsersPage/HeaderUserPage";
 import {getUserIdAction} from "../../redux/ajax/users/userId/getUsersIdAction";
 import PostColumn from "../../components/PostColumn/PostColumn";
+import Main from "../Main/Main";
 
 
 const User = ({userData, comments}) => {
@@ -18,15 +21,12 @@ const User = ({userData, comments}) => {
     const posts = postsData.data.filter(post => post.user === userData.data._id)
     const [commentPost, setCommentPost] = useState("")
 
-
-        useEffect(() => {
-            dispatch(getUserIdAction(idUser[2]))
-        }, [])
-
+    useEffect(() => {
+        dispatch(getUserIdAction(idUser[2]))
+    }, [])
 
     return (
         <div className="page-user">
-
             {userData.loading === false && <>
                 <HeaderUserPage user={userData.data} posts={posts}/>
                 <PostColumn idUser={idUser[2]} posts={posts} comments={comments}/>
@@ -34,6 +34,11 @@ const User = ({userData, comments}) => {
             }
         </div>
     )
+};
+
+User.protoType = {
+    userData: PropTypes.object,
+    comments: PropTypes.object,
 }
 
 export default User;

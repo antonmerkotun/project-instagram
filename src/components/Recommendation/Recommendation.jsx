@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from "react-router-dom";
+import PropTypes from "prop-types";
 
 //style
 import "./Recommendation.scss"
@@ -6,7 +8,7 @@ import "./Recommendation.scss"
 //components
 import UserAvatar from "../UserAvatar/UserAvatar";
 import UsersList from "../UsersList/UsersList";
-import {Link} from "react-router-dom";
+import Main from "../../pages/Main/Main";
 
 
 const Recommendation = ({accountData, subscriptions, recommendations}) => {
@@ -41,10 +43,14 @@ const Recommendation = ({accountData, subscriptions, recommendations}) => {
                     <p className="recommendation__signature">© 2022 INSTAGRAM FROM META</p>
                 </div>
             }
-
         </>
-
     );
 };
+
+Recommendation.protoType = {
+    accountData: PropTypes.object,
+    subscriptions: PropTypes.object,
+    recommendations: PropTypes.object,
+}
 
 export default Recommendation;
