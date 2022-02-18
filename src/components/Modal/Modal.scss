@@ -1,15 +1,68 @@
 .modal {
   border: 1px solid #9999;
   color: #ffff;
-  border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.25);
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &_post {
+    height: 90vh;
+    width: 100%;
+    margin: 0 150px;
+    background-color: #FFFFFF;
+    display: flex;
+
+    &_block {
+      height: 100%;
+      width: 65%;
+      border-left: 1px solid #dbdbdb;
+    }
+
+    &_comments {
+      width: 35%;
+      color: black;
+
+      &_item {
+        padding: 10px 20px;
+      }
+
+      &_body {
+        height: 75vh;
+      }
+
+      &_avatar {
+        align-items: center;
+        display: flex;
+        padding: 15px;
+        border-bottom: 1px solid #dbdbdb;
+
+        &-image {
+          height: 32px;
+          width: 32px;
+        }
+      }
+
+      &_nickName {
+        margin-left: 20px;
+        font-size: 18px;
+      }
+    }
+  }
+
+
+  &-image {
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }

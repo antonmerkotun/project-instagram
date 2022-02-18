@@ -40,12 +40,12 @@ function UsersList({users, button}) {
             {users.map((user) => (
                 <div className="recommendation-list-block" key={user._id}>
                     <div className="recommendation-list-user">
-                        <div className="recommendation-list-user-avatar" onClick={() => {dispatch(getUserIdAction(user._id))}}>
+                        <div className="recommendation-list-user-avatar">
                             <Link to={`/user/${user._id}`}>
                                 <UserAvatar avatar={user.avatar} user={user}/>
                             </Link>
                         </div>
-                        <div className="recommendation-list-user-nickName" onClick={() => {dispatch(getUserIdAction(user._id))}}>
+                        <div className="recommendation-list-user-nickName">
                             <Link to={`/user/${user._id}`} className="link">
                                 <p className="recommendation-list-user-nickName-text">{user.name.nickName}</p>
                             </Link>

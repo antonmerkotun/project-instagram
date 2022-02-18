@@ -38,6 +38,7 @@ function App() {
 
     return (
         <BrowserRouter>
+            <div className="header_line"/>
             <div className="container">
                 <Header account={accountData.data}/>
                 <div className="scroll-block">
@@ -48,7 +49,7 @@ function App() {
                                   subscriptionsTrue={subscriptionsTrue}
                                   postsData={postsData}
                                   commentsData={commentsData}/>}/>
-                        <Route exact path="/user/:id" element={<User userData={userData}/>}/>
+                        <Route exact path="/user/:id" element={<User userData={userData} comments={commentsData.data}/>}/>
                         <Route exact path="/message" element={<NotFound titlePage={"message"}/>}/>
                         <Route exact path="/newpost" element={<NotFound titlePage={"newpost"}/>}/>
                         <Route exact path="/compass" element={<NotFound titlePage={"compass"}/>}/>

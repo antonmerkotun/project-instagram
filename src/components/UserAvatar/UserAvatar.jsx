@@ -4,7 +4,7 @@ import React from 'react';
 import "./UserAvatar.scss"
 import {Link} from "react-router-dom";
 
-const UserAvatar = ({avatar = '', user}) => {
+const UserAvatar = ({avatar = ''}) => {
 
     return (
         // <Link className="link" to="/user">
