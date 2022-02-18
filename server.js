@@ -5,9 +5,18 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json());
 
+app.use(express.static(path.join(__dirname, 'build')))
+
+app.get('/', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'))
+})
+
 const url = "mongodb+srv://antonmerkotun:1996178dD@instagram.9subi.mongodb.net/insta?retryWrites=true&w=majority";
 const client = new MongoClient(url);
 const PORT = process.env.PORT || 3005
+
+
+
 
 client.connect(err => {
     const usersCollections = client.db("insta").collection("users");
